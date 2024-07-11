@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Python初学者总结 | daseinzc</title>
+    <meta name="author" content="daseinzc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>DASEINZC</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;DASEINZC</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>Python初学者总结</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/11
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/study/" style="color: #00bcd4">
+                    study
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="这是一个社科学生python考试前夕写的，可能会存在错误，多多见谅！QAQ"><a href="#这是一个社科学生python考试前夕写的，可能会存在错误，多多见谅！QAQ" class="headerlink" title="这是一个社科学生python考试前夕写的，可能会存在错误，多多见谅！QAQ"></a>这是一个社科学生python考试前夕写的，可能会存在错误，多多见谅！QAQ</h1><span id="more"></span>
+
+<h1 id="input"><a href="#input" class="headerlink" title="input():"></a>input():</h1><p><strong>多个数字输入：</strong></p>
+<pre><code class="python">a,b = eval(input())
+</code></pre>
+<p><strong>多个变量输入</strong></p>
+<pre><code class="python">a,b = input().split(&#39;,&#39;) 
+</code></pre>
+<p>使用’,’的原因是一般输入使用英文逗号分割变量</p>
+<h1 id="print"><a href="#print" class="headerlink" title="print()"></a>print()</h1><pre><code class="python">print(str,end=&#39;&#39;)
+</code></pre>
+<hr>
+<h1 id="变量与常量："><a href="#变量与常量：" class="headerlink" title="变量与常量："></a>变量与常量：</h1><h2 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h2><h3 id="int（）"><a href="#int（）" class="headerlink" title="int（）"></a><strong>int（）</strong></h3><p>去掉小数部分 &amp; 把字符串变为数值(字符串中必须为整数)</p>
+<pre><code class="python">print(int(1.3),int(-1.3),int(&#39;12&#39;))
+
+1 -1 12 # 输出 
+</code></pre>
+<h3 id="float"><a href="#float" class="headerlink" title="float()"></a><strong>float()</strong></h3><p>变为小数</p>
+<pre><code class="python">print(float(1),float(2.3))
+
+1.0 2.3 # 输出 
+</code></pre>
+<h3 id="chr-ord-编码转换"><a href="#chr-ord-编码转换" class="headerlink" title="chr() &amp; ord() 编码转换"></a><strong>chr() &amp; ord() 编码转换</strong></h3><pre><code class="python">print(ord(&#39;a&#39;),chr(65))
+
+97 A # 输出
+</code></pre>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a><strong>关键字</strong></h3><pre><code class="python">import keyword
+print(keyword.kwlist)
+[
+&#39;False&#39;, &#39;None&#39;, &#39;True&#39;, &#39;and&#39;, &#39;as&#39;, &#39;assert&#39;, &#39;async&#39;, &#39;await&#39;, &#39;break&#39;, &#39;class&#39;,&#39;continue&#39;, &#39;def&#39;, &#39;del&#39;, &#39;elif&#39;, &#39;else&#39;, &#39;except&#39;, &#39;finally&#39;, &#39;for&#39;, &#39;from&#39;, &#39;global&#39;,&#39;if&#39;, &#39;import&#39;, &#39;in&#39;, &#39;is&#39;, &#39;lambda&#39;, &#39;nonlocal&#39;, &#39;not&#39;, &#39;or&#39;, &#39;pass&#39;, &#39;raise&#39;, &#39;return&#39;,&#39;try&#39;, &#39;while&#39;, &#39;with&#39;, &#39;yield&#39;
+]
+</code></pre>
+<h1 id="运算符："><a href="#运算符：" class="headerlink" title="运算符："></a>运算符：</h1><h2 id="算数运算符："><a href="#算数运算符：" class="headerlink" title="算数运算符："></a>算数运算符：</h2><pre><code class="python">+,-   *,/,//,%    
+</code></pre>
+<p>** 优先级从右往左</p>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><pre><code class="python">==,！=,&lt;,&lt;=,&gt;,&gt;=
+</code></pre>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><pre><code class="python">and，not,or
+</code></pre>
+<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><h2 id="赋值运算符-a-1"><a href="#赋值运算符-a-1" class="headerlink" title="赋值运算符 a+&#x3D;1"></a>赋值运算符 a+&#x3D;1</h2><p>优先级：算数&gt;位&gt;比较&gt;赋值&gt;逻辑</p>
+<h1 id="math"><a href="#math" class="headerlink" title="math"></a>math</h1><h2 id="ceil-floor-向上取整-向下取整"><a href="#ceil-floor-向上取整-向下取整" class="headerlink" title="ceil() &amp; floor() 向上取整 &amp; 向下取整"></a><strong>ceil() &amp; floor() 向上取整 &amp; 向下取整</strong></h2><pre><code class="python">import math
+print(math.ceil(2.3),math.floor(2.5))
+
+3 2 # 输出
+</code></pre>
+<h2 id="sqrt"><a href="#sqrt" class="headerlink" title="sqrt()"></a><strong>sqrt()</strong></h2><p>开平方 &#x3D;&#x3D;  **（1&#x2F;2）</p>
+<pre><code class="python">print(math.sqrt(4))
+
+2.0 # 输出 
+</code></pre>
+<h2 id="pow-x-y"><a href="#pow-x-y" class="headerlink" title="pow(x,y)"></a><strong>pow(x,y)</strong></h2><p>x的y次方</p>
+<pre><code class="python">print(math.pow(2,3))
+
+8.0 # 输出 
+</code></pre>
+<h2 id="round-a-b-对a保留b位小数"><a href="#round-a-b-对a保留b位小数" class="headerlink" title="round(a,b) 对a保留b位小数"></a><strong>round(a,b) 对a保留b位小数</strong></h2><pre><code class="python">print(round(2.23333333,3))
+
+2.233 # 输出 
+</code></pre>
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a><strong>转义字符</strong></h2><p>\为换行 \\为<br>单引号为\‘ 双引号为\“<br>换行\n,制表\t,光标回到初始\r,后退\b,换页\f</p>
+<h1 id="循环：for-else结构"><a href="#循环：for-else结构" class="headerlink" title="循环：for-else结构"></a>循环：for-else结构</h1><p>如果循环中break没有触发，就跳转到else</p>
+<hr>
+<h1 id="turtle"><a href="#turtle" class="headerlink" title="turtle"></a>turtle</h1><pre><code class="python">import turtle as t
+t.setup(width=100,height=100,startx=10,starty=10) # 窗体大小
+t.goto(100,100) # 位置运动
+t.fd(10)forward
+t.bk(10)back
+t.circle(r=4,extent=None)# r半径，extent角度，默认360.圆心在左侧r距离位置
+t.setheading(angle=30) # 绝对角度
+t.left(90)
+t.right(90)
+t.penup()# 抬起
+t.pendown()# 放下
+t.pensize(10) # 画笔宽度
+t.pencolor(&#39;red&#39;)# 颜色字符串
+t.speed(10)# 速度
+</code></pre>
+<hr>
+<h1 id="jieba"><a href="#jieba" class="headerlink" title="jieba"></a>jieba</h1><p><strong>精确模式</strong></p>
+<pre><code class="python">jieba.lcut(&#39;中华人民共和国是一个伟大的国家&#39;) #cut_all默认为False，无冗余部分
+
+[&#39;中华人民共和国&#39;,&#39;是&#39;,&#39;一个&#39;,&#39;伟大&#39;,&#39;的&#39;,&#39;国家&#39;] # 输出
+</code></pre>
+<p><strong>全模式</strong></p>
+<pre><code class="python">jieba.lcut(&#39;中华人民共和国是一个伟大的国家&#39;，cut_all=Ture) #冗余从第一个字到最后一个字将所有可能的词语切分出来
+
+[&#39;中华&#39;,&#39;中华人民&#39;,&#39;中华人民共和国&#39;,&#39;华人&#39;,&#39;人民&#39;,&#39;人民共和国&#39;,&#39;共和国&#39;,&#39;国是&#39;,&#39;一个&#39;,&#39;伟大,&#39;的&#39;,&#39;国家&#39;] # 输出
+</code></pre>
+<p><strong>搜索引擎模式</strong></p>
+<pre><code class="python">jieba.lcut_for_search(&#39;中华人民共和国是一个伟大的国家&#39;) #将精确模式的长词进行全模式的切分
+
+[&#39;中华&#39;,&#39;华人&#39;,&#39;人民&#39;,&#39;共和&#39;,&#39;共和国&#39;,&#39;中华人民共和国&#39;,&#39;是&#39;,&#39;一个&#39;,&#39;伟大&#39;,&#39;的&#39;,&#39;国家&#39;] #输出
+</code></pre>
+<hr>
+<h1 id="random"><a href="#random" class="headerlink" title="random"></a>random</h1><h2 id="random-seed"><a href="#random-seed" class="headerlink" title="random.seed()"></a><strong>random.seed()</strong></h2><p>设定固定种子</p>
+<h2 id="random-randiant-a-b"><a href="#random-randiant-a-b" class="headerlink" title="random.randiant(a,b)"></a><strong>random.randiant(a,b)</strong></h2><p>随机生成a,b之间的整数（闭区间）</p>
+<h2 id="random-random"><a href="#random-random" class="headerlink" title="random.random()"></a><strong>random.random()</strong></h2><p>生成0.0到1.0之间的随机小数，左闭右开</p>
+<h2 id="random-uniform-a-b"><a href="#random-uniform-a-b" class="headerlink" title="random.uniform(a,b)"></a><strong>random.uniform(a,b)</strong></h2><p>生成之间的随机小数（闭区间）</p>
+<h2 id="random-shuffle-seq"><a href="#random-shuffle-seq" class="headerlink" title="random.shuffle(seq)"></a><strong>random.shuffle(seq)</strong></h2><p>将序列中的元素随机排序，返回打乱后的序列 （没有返回值）</p>
+<pre><code class="python">import random
+seq = [1,2,3,4,5]
+random.shuffle(seq)
+print(seq)
+
+[4, 5, 3, 2, 1] #输出
+</code></pre>
+<h2 id="random-choice-seq"><a href="#random-choice-seq" class="headerlink" title="random.choice(seq)"></a><strong>random.choice(seq)</strong></h2><p>从序列中随机返回一个元素</p>
+<hr>
+<h1 id="异常处理-try-ecept"><a href="#异常处理-try-ecept" class="headerlink" title="异常处理 try-ecept"></a>异常处理 try-ecept</h1><h2 id="异常类："><a href="#异常类：" class="headerlink" title="异常类："></a>异常类：</h2><ul>
+<li><p><strong>NameError  未声明变量</strong> </p>
+</li>
+<li><p><strong>SybtaxError 语法错误</strong></p>
+</li>
+</ul>
+<pre><code class="python">try:
+    pass 要执行的语句
+except NameError: 异常类型一，可以不填，只有一个except也可以
+    pass 解决方法
+except SyntaxError:
+    pass
+except:
+    pass
+else: 无异常发生时执行的语句块
+    pass
+finally: 无论是否发生异常都要执行的语句块
+    pass
+</code></pre>
+<hr>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a><strong>索引</strong></h2><p>从零开始</p>
+<h2 id="切片-str-start-end-step"><a href="#切片-str-start-end-step" class="headerlink" title="切片 str[start,end,step]"></a><strong>切片 str[start,end,step]</strong></h2><p>(即使start和end为负数也要从左往右,start从零开始，end不能取)</p>
+<pre><code class="python">s1 = &#39;zhencheng&#39;
+print(s1[::-1],s1[-6:-1],s1[7:1:-1])
+
+gnehcnehz nchen nehcne #输出
+</code></pre>
+<h2 id="字符串拼接‘-’与复制‘’"><a href="#字符串拼接‘-’与复制‘’" class="headerlink" title="*字符串拼接‘+’与复制‘’"></a>*<em>字符串拼接‘+’与复制‘</em>’</h2><h2 id="成员运算符：in-not-in"><a href="#成员运算符：in-not-in" class="headerlink" title="成员运算符：in &amp; not in"></a><strong>成员运算符：in &amp; not in</strong></h2><h2 id="内置函数：len-chr-ord-str"><a href="#内置函数：len-chr-ord-str" class="headerlink" title="内置函数：len(),chr(),ord(),str()"></a><strong>内置函数：len(),chr(),ord(),str()</strong></h2><h2 id="大小写转换-str-lower-str-upper"><a href="#大小写转换-str-lower-str-upper" class="headerlink" title="大小写转换 str.lower(),str.upper()"></a><strong>大小写转换 str.lower(),str.upper()</strong></h2><h2 id="数量检验-str-count-sub-start-end"><a href="#数量检验-str-count-sub-start-end" class="headerlink" title="数量检验 str.count(sub,start,end)"></a><strong>数量检验 str.count(sub,start,end)</strong></h2><pre><code class="python">print(&#39;zhencheng&#39;.count(&#39;en&#39;,2,6))
+
+1 #输出
+</code></pre>
+<h2 id="替换-str-replace-old-new-count"><a href="#替换-str-replace-old-new-count" class="headerlink" title="替换 str.replace(old,new,count)"></a><strong>替换 str.replace(old,new,count)</strong></h2><p>前count次的old会被替换</p>
+<pre><code class="python">print(&#39;11shuai,11hao,11bang&#39;.replace(&#39;11&#39;,&#39;zhencheng&#39;,2))
+
+zhenchengshuai,zhenchenghao,11bang #输出 
+</code></pre>
+<h2 id="拼接-str-join-iterable"><a href="#拼接-str-join-iterable" class="headerlink" title="拼接 str.join(iterable)"></a><strong>拼接 str.join(iterable)</strong></h2><p>iterable组合数据类型 这里要拼接的元素必须是字符串类型</p>
+<pre><code class="python">print(&#39;-&#39;.join([&#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;4&#39;])
+
+1-2-3-4 # 输出 
+</code></pre>
+<h2 id="切割-str-split-‘a’"><a href="#切割-str-split-‘a’" class="headerlink" title="切割 str.split(‘a’)"></a><strong>切割 str.split(‘a’)</strong></h2><p>以a为基准进行切割，返回列表</p>
+<pre><code class="python">print(&#39;a1b1c1d1&#39;.split(&#39;1&#39;))
+
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;&#39;] #输出
+</code></pre>
+<h2 id="搜索-str-find-sub-start-end"><a href="#搜索-str-find-sub-start-end" class="headerlink" title="搜索 str.find(sub,start,end)"></a><strong>搜索 str.find(sub,start,end)</strong></h2><p>end默认全字符串长度,给出end则不包含。如果有，就返回第一个索引。没有就返回-1</p>
+<pre><code class="python">#案例1
+print(&#39;zhenggggcheng&#39;.find(&#39;g&#39;,3,9))
+
+4 # 输出 
+</code></pre>
+<pre><code class="python">#案例2
+print(&#39;zhengcheng&#39;.find(&#39;q&#39;))
+
+-1 #输出 
+</code></pre>
+<h2 id="index-（sub）"><a href="#index-（sub）" class="headerlink" title="index （sub）"></a><strong>index （sub）</strong></h2><p>与find相同。区别在于，find搜索的字串如果不存在，返回1；index则会报错。</p>
+<h1 id="format"><a href="#format" class="headerlink" title="format"></a>format</h1><p>从左往右依次为：  1.参数序号2.’:’引导符号3.填充符号4.对齐符号5.宽度6.’,’千位分割号7.精度8.数据类型</p>
+<pre><code class="python"># 案例1
+print(&#39;&#123;:^10,&#125;&#39;.format(10000))
+
+10,000 #输出
+</code></pre>
+<pre><code class="python"># 案例2
+print(&#39;&#123;:.1f&#125;&#39;.format(2.111))
+
+2.1 #输出 
+</code></pre>
+<hr>
+<h1 id="列表：序列数据类型"><a href="#列表：序列数据类型" class="headerlink" title="列表：序列数据类型"></a>列表：序列数据类型</h1><h2 id="索引-切片-’-’拼接"><a href="#索引-切片-’-’拼接" class="headerlink" title="索引&amp;切片&amp;’+’拼接"></a><strong>索引&amp;切片&amp;’+’拼接</strong></h2><h2 id="len-count-index"><a href="#len-count-index" class="headerlink" title="len(),count(),index()"></a><strong>len(),count(),index()</strong></h2><p>字符串同理</p>
+<h2 id="min-max"><a href="#min-max" class="headerlink" title="min(),max()"></a><strong>min(),max()</strong></h2><p>最大最小值</p>
+<h2 id="ls-append-a"><a href="#ls-append-a" class="headerlink" title="ls.append(a)"></a><strong>ls.append(a)</strong></h2><p>末尾添加a</p>
+<h2 id="ls-pop-2"><a href="#ls-pop-2" class="headerlink" title="ls.pop(2)"></a><strong>ls.pop(2)</strong></h2><p>弹出并返回索引的元素</p>
+<h2 id="s-insert-index，item"><a href="#s-insert-index，item" class="headerlink" title="s.insert(index，item)"></a><strong>s.insert(index，item)</strong></h2><p>在第几位插入一个新的元素</p>
+<h2 id="del-删除列表"><a href="#del-删除列表" class="headerlink" title="del 删除列表"></a><strong>del 删除列表</strong></h2><p>删除后列表不存在</p>
+<pre><code class="python">#案例1
+ls = [1,2,3,4]
+del ls
+print(ls)
+
+NameError: name &#39;ls&#39; is not defined  #输出
+</code></pre>
+<pre><code class="python">#案例2
+ls = [1,2,3,4]
+del ls[1]
+print(ls) 
+
+[1, 3, 4] #输出 
+</code></pre>
+<h2 id="ls-remove-a"><a href="#ls-remove-a" class="headerlink" title="ls.remove(a)"></a><strong>ls.remove(a)</strong></h2><p>删除列表中a这个元素</p>
+<h2 id="ls-reverse"><a href="#ls-reverse" class="headerlink" title="ls.reverse()"></a><strong>ls.reverse()</strong></h2><p>反转,没有返回值 与ls[::-1]相似</p>
+<pre><code class="python">ls = [1,2,3,4]
+ls.reverse()
+print(ls)
+
+[4, 3, 2, 1] #输出
+</code></pre>
+<h2 id="ls-sort-key-reverse"><a href="#ls-sort-key-reverse" class="headerlink" title="ls.sort(key,reverse)"></a><strong>ls.sort(key,reverse)</strong></h2><p>排序 key排序规则，reverse顺序 Ture是降序，False是升序，默认升序.没有返回值</p>
+<pre><code class="python">ls=[1,3,2,4]
+ls.sort(reverse=True)
+print(ls)
+
+[4, 3, 2, 1] #输出 
+</code></pre>
+<h2 id="拓展：-sorted-seq-有返回值（不修改原列表，创建新列表）"><a href="#拓展：-sorted-seq-有返回值（不修改原列表，创建新列表）" class="headerlink" title="拓展： sorted(seq)有返回值（不修改原列表，创建新列表）"></a><strong>拓展： sorted(seq)有返回值（不修改原列表，创建新列表）</strong></h2><pre><code class="python">ls1=[1,3,2,4]
+ls2=sorted(ls1)
+print(ls2)
+
+[1, 2, 3, 4] #输出
+</code></pre>
+<h2 id="ls-clear（）-清空，无参数无返回值"><a href="#ls-clear（）-清空，无参数无返回值" class="headerlink" title="ls.clear（） 清空，无参数无返回值"></a><strong>ls.clear（） 清空，无参数无返回值</strong></h2><h2 id="ls-copy-拷贝-有返回值"><a href="#ls-copy-拷贝-有返回值" class="headerlink" title="ls.copy() 拷贝 有返回值"></a><strong>ls.copy() 拷贝 有返回值</strong></h2><ul>
+<li><p>直接赋值，ls1&#x3D;ls2,后面ls1会随着ls2变化而变化</p>
+</li>
+<li><p>浅拷贝：两个列表外层独立，内层关联</p>
+</li>
+</ul>
+<pre><code class="python">ls1=[1,2,[3,4]]
+ls2=ls1.copy()
+print(&#39;ls1:&#39;,ls1)
+print(&#39;ls2:&#39;,ls2)
+ls1[0]=666
+print(&#39;ls1:&#39;,ls1)
+print(&#39;ls2:&#39;,ls2)
+ls1[2][0]=777
+print(&#39;ls1:&#39;,ls1)
+print(&#39;ls2:&#39;,ls2)
+
+ls1: [1, 2, [3, 4]] #输出
+ls2: [1, 2, [3, 4]]
+ls1: [666, 2, [3, 4]]
+ls2: [1, 2, [3, 4]]
+ls1: [666, 2, [777, 4]]
+ls2: [1, 2, [777, 4]]
+</code></pre>
+<ul>
+<li>深拷贝：完全独立</li>
+</ul>
+<pre><code class="python">import copy
+ls1=[1,2,[3,4]]
+ls2=copy.deepcopy(ls1)
+print(&#39;ls1:&#39;,ls1)
+print(&#39;ls2:&#39;,ls2)
+ls1[0]=666
+print(&#39;ls1:&#39;,ls1)
+print(&#39;ls2:&#39;,ls2)
+ls1[2][0]=777
+print(&#39;ls1:&#39;,ls1)
+print(&#39;ls2:&#39;,ls2)
+
+ls1: [1, 2, [3, 4]] #输出
+ls2: [1, 2, [3, 4]]
+ls1: [666, 2, [3, 4]]
+ls2: [1, 2, [3, 4]]
+ls1: [666, 2, [777, 4]]
+ls2: [1, 2, [3, 4]]
+</code></pre>
+<h2 id="ls-strip-去掉两端的制表，换行"><a href="#ls-strip-去掉两端的制表，换行" class="headerlink" title="ls.strip() 去掉两端的制表，换行"></a><strong>ls.strip() 去掉两端的制表，换行</strong></h2><h1 id="元组tuple"><a href="#元组tuple" class="headerlink" title="元组tuple"></a>元组tuple</h1><p>不可变的列表。元组类型的对象不支持重新定义</p>
+<h2 id="元组如果只有一个元素-需要在末尾添加一个逗号"><a href="#元组如果只有一个元素-需要在末尾添加一个逗号" class="headerlink" title="元组如果只有一个元素,需要在末尾添加一个逗号"></a><strong>元组如果只有一个元素,需要在末尾添加一个逗号</strong></h2><p>t &#x3D; (“haha”,) 这里是元组</p>
+<h2 id="t-1-2-3-“hahaha”-”momoda”"><a href="#t-1-2-3-“hahaha”-”momoda”" class="headerlink" title="t &#x3D; (1,2,3,[“hahaha”,”momoda”])"></a><strong>t &#x3D; (1,2,3,[“hahaha”,”momoda”])</strong></h2><p>元组不可变说的是表面内存地址不可变，但里面的列表可变 如： t[3].append(“hhh”)</p>
+<h2 id="元组顺序可变tuple-1"><a href="#元组顺序可变tuple-1" class="headerlink" title="元组顺序可变tuple[::-1]"></a><strong>元组顺序可变tuple[::-1]</strong></h2><hr>
+<h1 id="集合set-无序，不可重复"><a href="#集合set-无序，不可重复" class="headerlink" title="集合set 无序，不可重复"></a>集合set 无序，不可重复</h1><p>s &#x3D; {} 只放一个大括号会被认为是字典</p>
+<h2 id="形式"><a href="#形式" class="headerlink" title="形式"></a><strong>形式</strong></h2><p>s &#x3D; {1,2,3,”haha”} 这是集合的形式，但是不能有【】列表，不可哈希（unhashable）：<br>python中的set集合进行数据存储时，需要对数据进行哈希计算，根据据算出来的哈希值进行储存数据</p>
+<h2 id="元组可以放进去"><a href="#元组可以放进去" class="headerlink" title="元组可以放进去"></a><strong>元组可以放进去</strong></h2><p>可哈希：不可变的数据类型：int（数值），str，tuple（元组），bool<br>不可哈希：list（列表），dict（字典），set（集合）。因此set集合不存在嵌套问题。</p>
+<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a><strong>运算</strong></h2><pre><code class="python">s1 = &#123;&quot;a&quot;,&quot;b&quot;,&quot;c&quot;&#125;
+s2 = &#123;&quot;a&quot;,&quot;d&quot;,&quot;e&quot;&#125;
+print(s1 &amp; s2) # 交集
+print(s1 | s2) # 并集
+print(s1 - s2) # 差集
+</code></pre>
+<h2 id="重要作用，可以去除重复"><a href="#重要作用，可以去除重复" class="headerlink" title="重要作用，可以去除重复"></a><strong>重要作用，可以去除重复</strong></h2><pre><code class="python">lst  = [a,b,a,c,]
+set(lst)# 可以把列表重复的合并
+list(set(lst))# 可以变回列表，但是可能会无序的结果
+</code></pre>
+<h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><h2 id="空字典-dic-dict"><a href="#空字典-dic-dict" class="headerlink" title="空字典 dic &#x3D; dict()"></a><strong>空字典 dic &#x3D; dict()</strong></h2><h2 id="修改或者添加-dics-key-value"><a href="#修改或者添加-dics-key-value" class="headerlink" title="修改或者添加 dics[key]&#x3D;value"></a><strong>修改或者添加 dics[key]&#x3D;value</strong></h2><p>dic &#x3D; {‘a’:1,’b’:2,’c’:3}</p>
+<h2 id="返回所有key-n-dic-keys"><a href="#返回所有key-n-dic-keys" class="headerlink" title="返回所有key n &#x3D; dic.keys"></a><strong>返回所有key n &#x3D; dic.keys</strong></h2><pre><code class="python">print(dic.keys())
+
+dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]) #输出
+</code></pre>
+<h2 id="返回values-n-dic-values"><a href="#返回values-n-dic-values" class="headerlink" title="返回values n &#x3D; dic.values()"></a><strong>返回values n &#x3D; dic.values()</strong></h2><pre><code class="python"> print(dic.values())
+
+dict_values([1, 2, 3]) #输出
+</code></pre>
+<h2 id="返回所有键值对-n-dic-items"><a href="#返回所有键值对-n-dic-items" class="headerlink" title="返回所有键值对 n &#x3D; dic.items()"></a><strong>返回所有键值对 n &#x3D; dic.items()</strong></h2><pre><code class="python"> print(dic.items())
+
+ dict_items([(&#39;a&#39;, 1), (&#39;b&#39;, 2), (&#39;c&#39;, 3)]) # 输出 
+</code></pre>
+<h2 id="dic-get-key-value"><a href="#dic-get-key-value" class="headerlink" title="dic.get(key,value)"></a><strong>dic.get(key,value)</strong></h2><p>key 为指定键值，value为可选参数。若键值不存在就返回value（设定的默认值）或none（默认值）</p>
+<pre><code class="python"># 案例1
+dic = &#123;&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3&#125;
+print(dic.get(&#39;a&#39;))
+
+1 #输出
+</code></pre>
+<pre><code class="python"># 案例2
+print(dic.get(&#39;e&#39;))
+
+None # 输出 
+</code></pre>
+<pre><code class="python"># 案例3
+print(dic.get(&#39;f&#39;,6))
+
+6 # 输出 
+</code></pre>
+<p>区别：dic[key]如果不存在会报错</p>
+<h2 id="dic-pop-‘a’，default"><a href="#dic-pop-‘a’，default" class="headerlink" title="dic.pop(‘a’，default)"></a><strong>dic.pop(‘a’，default)</strong></h2><p>键存在就返回值，同时删除键对.如果不指定键会删除最后一个并返回值。</p>
+<pre><code class="python">dic = &#123;&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3&#125;
+v1 = dic.pop(&#39;a&#39;)
+v2 = dic.pop(&#39;e&#39;,4)
+print(v1,v2)
+
+1 4 # 输出
+</code></pre>
+<h2 id="dic-popitem-删除最后一项并以元组形式返回键值对"><a href="#dic-popitem-删除最后一项并以元组形式返回键值对" class="headerlink" title="dic.popitem() 删除最后一项并以元组形式返回键值对"></a><strong>dic.popitem() 删除最后一项并以元组形式返回键值对</strong></h2><h2 id="清空-dic-clear"><a href="#清空-dic-clear" class="headerlink" title="清空 dic.clear()"></a><strong>清空 dic.clear()</strong></h2><h2 id="消除后者存在-del-dic"><a href="#消除后者存在-del-dic" class="headerlink" title="消除后者存在 del dic"></a><strong>消除后者存在 del dic</strong></h2><h2 id="删除某一个键对值-del-dic-key"><a href="#删除某一个键对值-del-dic-key" class="headerlink" title="删除某一个键对值 del dic[key]"></a><strong>删除某一个键对值 del dic[key]</strong></h2><h2 id="解包"><a href="#解包" class="headerlink" title="解包"></a><strong>解包</strong></h2><p>元组，列表都可以用。解包，解构。</p>
+<pre><code class="python">dic = &#123;&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3&#125;
+for key,value in dic.items():
+    print(key,value)
+
+a 1
+b 2
+c 3 # 输出
+</code></pre>
+<h2 id="dic1-update-dic2"><a href="#dic1-update-dic2" class="headerlink" title="dic1.update(dic2)"></a><strong>dic1.update(dic2)</strong></h2><p>新字典更新到就字典中，如果键重复，新的覆盖旧的；如果键不存在，直接添加</p>
+<pre><code class="python">dic1 = &#123;&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3&#125;
+dic2 = &#123;&#39;r&#39;:34,&#39;v&#39;:5,&#39;c&#39;:6&#125;
+dic1.update(dic2)
+print(dic1)
+
+&#123;&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 6, &#39;r&#39;: 34, &#39;v&#39;: 5&#125; # 输出
+</code></pre>
+<hr>
+<h1 id="文件管理："><a href="#文件管理：" class="headerlink" title="文件管理："></a>文件管理：</h1><h2 id="open-文件路径-mode-””-encoding-””"><a href="#open-文件路径-mode-””-encoding-””" class="headerlink" title="open(文件路径,mode&#x3D;””,encoding&#x3D;””)"></a><strong>open(文件路径,mode&#x3D;””,encoding&#x3D;””)</strong></h2><h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a><strong>mode</strong></h2><p>r:read   w:write a:append(追加模式，用a去写入，不会删除原来文件内的内容) b:bytes(读写非文本的文件)，在前三个后面加上b</p>
+<h2 id="文件路径："><a href="#文件路径：" class="headerlink" title="文件路径："></a><strong>文件路径：</strong></h2><ul>
+<li><p>相对路径：相对与程序所在的文件夹。</p>
+</li>
+<li><p>绝对路径：d：&#x2F;test&#x2F;xxx.xx</p>
+</li>
+</ul>
+<h2 id="open（”-“）返回上层文件"><a href="#open（”-“）返回上层文件" class="headerlink" title="open（”..&#x2F;“）返回上层文件"></a><strong>open（”..&#x2F;“）返回上层文件</strong></h2><pre><code class="python">open(&quot;../葫芦娃.text&quot;)
+open(&quot;../代码/倚天屠龙记.text&quot;)
+</code></pre>
+<h2 id="with-上下文不需要手动关闭"><a href="#with-上下文不需要手动关闭" class="headerlink" title="with:上下文不需要手动关闭"></a><strong>with:上下文不需要手动关闭</strong></h2><pre><code class="python">with open(&#39;123.txt&#39;,mode=&quot;r&quot;,encoding=&quot;utf-8&quot;) as f: f = open()
+    for line in f:
+        print(line.strip)
+
+with open(&#39;123.jpeg&#39;,mode = &#39;rb&#39;) as f:
+    for line in f:
+        print(line)
+</code></pre>
+<h2 id="read"><a href="#read" class="headerlink" title="read"></a><strong>read</strong></h2><ul>
+<li>全部读取，不适用大文件</li>
+</ul>
+<pre><code class="python">content = f.read()
+print(content)
+</code></pre>
+<ul>
+<li>读取一行（这是第一行）</li>
+</ul>
+<p>如果文本后面有&#x2F;n，python会自动添加换行符，会显示换两行，可用content&#x3D;f.readline.strip()</p>
+<pre><code class="python">line = f.readline()
+print(line)
+</code></pre>
+<ul>
+<li>输出多行，输出所有换行符等隐藏字符，放到列表中</li>
+</ul>
+<pre><code class="python">content = f.readlines()
+print(content)
+</code></pre>
+<h2 id="write"><a href="#write" class="headerlink" title="write"></a><strong>write</strong></h2><pre><code class="python">f = open(&quot;123.txt&quot;,mode = &quot;w&quot;,encoding=&quot;utf-8&quot;)# 大部分时候要把open放到循环外
+</code></pre>
+<p>如果文件不存在，自动创建<br>每一次open都会清空文件中的内容<br>f.write(‘1234’)<br>f.close() 养成好习惯，写入文件中。</p>
+<h2 id="文件的复制"><a href="#文件的复制" class="headerlink" title="文件的复制"></a><strong>文件的复制</strong></h2><pre><code class="python">with open(&#39;123.jpeg&#39;,mode = &#39;rb&#39;) as f1,\
+     open(&#39;../sadj/asd/234.jpeg&#39;,mode = &#39;wb&#39;) as f2:
+     for line in f1:
+        f2.write(line)
+with open(&#39;123.txt&#39;,mode=&#39;r&#39;,encoding=&#39;utf-8&#39;) as f1,\
+     open(&#39;123_1.txt&#39;,mode=&#39;w&#39;,encoding=&#39;utf-8&#39;) as f2:
+        for line in f1:
+            line = line.strip()
+            if line.starswith(&#39;1&#39;):
+                line = line.replace(&#39;1&#39;,&#39;2&#39;)
+            f2.write(line)
+            f2.write(&#39;\n&#39;)
+</code></pre>
+<hr>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="形参"><a href="#形参" class="headerlink" title="形参"></a><strong>形参</strong></h2><ul>
+<li><p>位置参数</p>
+</li>
+<li><p>默认值参数</p>
+</li>
+<li><p>动态传参</p>
+</li>
+</ul>
+<p>*args表示接受的位置参数的动态传参  **kwargs传参，接受的所有参数都放入字典<br>print(food) 表示接受所有的关键字的动态传参</p>
+<pre><code class="python">def chi(*food):#接收到的值会放在元组里
+    print(food)
+chi(1,2,3,4,5)
+</code></pre>
+<p>def chi(**food):表示接受关键字的动态</p>
+<pre><code class="python">chi(fu = &#39;1&#39;,zhu = &#39;2&#39;)
+</code></pre>
+<p> 顺序：位置参数，*args，默认值参数（修改可以写为 默认值&#x3D;‘新’），**kwargs，</p>
+<pre><code class="python">def func(*arge):
+    print(arge)
+lst = [1,2,3,4,5,6,7]
+func(*lst)  #在实参位置把列表打散成位置参数进行传递，字典是两个**
+</code></pre>
+<h2 id="实参"><a href="#实参" class="headerlink" title="实参"></a><strong>实参</strong></h2><ul>
+<li><p>位置参数</p>
+</li>
+<li><p>关键字参数</p>
+</li>
+<li><p>混合参数 顺序：位置，关键字</p>
+</li>
+</ul>
+<p><strong>global与nonlocal</strong></p>
+<ul>
+<li><p>global 在局部引入全局变量</p>
+</li>
+<li><p>nonlocal 在局部引入局部变量，向外找一层，有就引入，没有继续找），直到全局（不包括全局）</p>
+</li>
+</ul>
+<p><strong>闭包</strong></p>
+<ul>
+<li><p>让一个变量常驻和内存</p>
+</li>
+<li><p>避免全局变量被修改</p>
+</li>
+</ul>
+<pre><code class="python">def func():
+    a = 10
+    def inner:
+        nonlocal a
+        a+=1
+        return a
+    return inner
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 daseinzc
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;daseinzc
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
