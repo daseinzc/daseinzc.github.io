@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>乡土社会与产业扎根梳理笔记(一) | daseinzc</title>
+    <meta name="author" content="daseinzc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>DASEINZC</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;DASEINZC</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>乡土社会与产业扎根梳理笔记(一)</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/12
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/Sociology/" style="color: #ff7d73">
+                    Sociology
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="乡土社会与产业扎根梳理笔记-一"><a href="#乡土社会与产业扎根梳理笔记-一" class="headerlink" title="乡土社会与产业扎根梳理笔记(一)"></a>乡土社会与产业扎根梳理笔记(一)</h1><h2 id="———脱贫攻坚背景下特色农业发展的社会学研究"><a href="#———脱贫攻坚背景下特色农业发展的社会学研究" class="headerlink" title="———脱贫攻坚背景下特色农业发展的社会学研究"></a>———脱贫攻坚背景下特色农业发展的社会学研究</h2><h3 id="作者-付伟"><a href="#作者-付伟" class="headerlink" title="作者:付伟"></a>作者:付伟</h3><span id="more"></span>
+
+<h4 id="传统农业模式发生改变，特色农业发展现状"><a href="#传统农业模式发生改变，特色农业发展现状" class="headerlink" title="传统农业模式发生改变，特色农业发展现状"></a>传统农业模式发生改变，特色农业发展现状</h4><ul>
+<li><strong>新农业</strong>兴起引发<strong>隐形农业革命</strong>，<strong>特色农业兴起</strong>是新农业的重要内容<ul>
+<li>隐形农业革命：有传统粮食作物转变为高值农产品（有一种经济作物的感觉）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>[1]</strong> 黄宗智． 中国的隐性农业革命( 1980—2010) ———一个历史和比较的视野［J］ ． 开放时代， 2016( 2) : 11-35．</p>
+</blockquote>
+<ul>
+<li>新农业具有<strong>劳动和资本双密集化</strong>的特点.<ul>
+<li>与传统农业相比，特色农业需要较高的固定资产和流动资金投入。这就是<strong>资本密集化</strong>。</li>
+<li>高资本投入来自两方面：<ul>
+<li>国家投入：加大交通水利基础设施的建设，建设温室大棚、标准化生产基地等生产设施，移植市场主体、发展电商，加大对农业技术的投入、改进推广优秀作物品种、提高机械化水平、建立生产的社会化服务体系。</li>
+<li>农户自身积累：主体，资金来自于外出务工收入.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>[2]</strong> 黄宗智． “家庭农场”是中国农业的发展出路吗［J］ ． 开放时代， 2014( 2) : 176-194．</li>
+<li><strong>[3]</strong> 黄宗智， 高原． 中国农业资本化的动力: 公司， 国家， 还是农户［J］ ． 中国乡村研究， 2013( 1) : 28-50.</li>
+<li><strong>[4]</strong> 焦长权， 董磊明． 从“过密化”到“机械化”: 中国农业机械化革命的历程、动力和影响( 1980—2015 年) ［J］ ．管理世界， 2018， 34( 10) : 173-190.</li>
+<li><strong>[5]</strong> 韩启民． 城镇化背景下的家庭农业与乡土社会———对内蒙赤峰市农业经营形式的案例研究［J］ ． 社会， 2015，35( 5) : 122-141．</li>
+</ul>
+</blockquote>
+<ul>
+<li>特色农业的发展仍受许多因素的影响：<ul>
+<li>从政府行为角度看<ul>
+<li>有学者认为政府经营产业的动机是官员参与锦标赛竞争。地方政府发展特色产业的目的是<strong>比拼</strong>，<strong>比拼</strong>的不是经济总量，而是典型产业的特殊和新奇。<strong>地方政府发展产业的特殊逻辑影响了产业自身的发展轨迹</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>[6]</strong> 马明洁． 权力经营与经营式动员———一个“ 逼民致富”的案例分析［ M ］ ∥清华社会学评论( 特辑 1) ． 厦门:鹭江出版社， 2000: 47-80．</li>
+<li><strong>[8]</strong> 冯猛． 基层政府与地方产业选择———基于四东县的调查［J］ ． 社会学研究， 2014， 29( 2) : 145-169 + 244-245．</li>
+</ul>
+</blockquote>
+<ul>
+<li>特色产业<strong>高劳动力投入</strong>的生产过程面临着组织管理的难题。<ul>
+<li>产业过程难以标准化，过程管理较大，导致特色农业的生产过程必须高度嵌入乡村社会。(作者付伟认为对特色产业的研究需要引入一种自下儿上的社会学视角)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>[9]</strong> 陈锡文． 把握农村经济结构、农业经营形式和农村社会形态变迁的脉搏［J］ ． 开放时代， 2012( 3) : 112-115.</p>
+</blockquote>
+<h4 id="研究特色农业的社会学视角"><a href="#研究特色农业的社会学视角" class="headerlink" title="研究特色农业的社会学视角"></a>研究特色农业的社会学视角</h4><ul>
+<li>很多学者开始强调农业产业发展的社会基础，主张把农业经营过程置于宽广的政治经济和社会文化中去考察。<ul>
+<li>一直以来从社会学的视角研究经济行动就是重要的研究主题。<ul>
+<li>格兰诺维特强调经济行动的<strong>嵌入性</strong>，主张在社会关系中分析经济行动。</li>
+<li>学界也关注各种<strong>关系</strong>是如何影响了经济行动。</li>
+<li>然而这种<strong>嵌入式</strong>大都走向了对关系的形势分析，把经济行动看作是稀缺状态下理性选择过程，并利用社会网络分析方法分析关系形式与经济行为的关系</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>[11]</strong> 熊春文． 农业社会学: 经典命题及其延续［J］ ． 中国农业大学学报( 社会科学版) ， 2019，36( 2) : 5-10．</li>
+<li><strong>[12]</strong> 陈义媛． 农业技术变迁与农业转型: 占取主义 &#x2F;替代主义理论述评［J］ ． 中国农业大学学报( 社会科学版) ，2019， 36( 2) : 24-34．</li>
+<li><strong>[13]</strong> GRANOVETTER M． Economic action and social structure: the problem of embeddedness ［J］ ． American Journal of Sociology， 1985， 91( 3) : 481-510．</li>
+</ul>
+</blockquote>
+<ul>
+<li>乡土社会具有鲜明特征，生活在乡土社会的人会有特殊的行为伦理，尤其是我国乡村社会受传统因素的影响，不能套用西方意义上的理性化组织形态。</li>
+<li>在发展过程中，我国农户并非仅仅是参与产业发展的抽象劳动力。实际上，农户处在一定的社会关系中，是具有头特定行为逻辑的“社会人”。<strong>因此，研究特色农业的社会学视角就是把‘人’放在突出的地位。</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li>[14]韦伯． 经济与历史［M］ ． 康乐， 译． 桂林: 广西师范大学出版社， 2010: 161．</li>
+</ul>
+</blockquote>
+<ul>
+<li>人处于一定的社会结构中，从社会学视角讨论特色农业，就是讨论其如何在具体家庭、村庄等社会结构上发展起来的。<ul>
+<li>特色农业在生产组织中有许多技术细节，因而表明生产组织过程必须建立在乡土社会的基础之上。</li>
+<li>尽管参与者看来这是不言而喻的过程，但在交往过程中这种“只可意会不可言传”的<strong>心态</strong>成为影响特色农业成败的关键。</li>
+<li>近年来，中国社会学将研究从关系的形式分析转向注重关系的伦理疑云，并力图进一步挖掘伦理中的历史意涵。（历史意蕴是什么）</li>
+<li>因而“只可意会”的交往过程与中国人特有的心智结构有关，是特定行动伦理的产物。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>[17] 付伟． 城乡融合发展进程中的乡村产业及其社会基础———以浙江省 L 市偏远乡村来料加工为例［J］ ． 中国社会科学， 2018( 6) : 71-90.</li>
+<li>[18] 周飞舟． 行动伦理与“关系社会”———社会学中国化的路径［J］ ． 社会学研究， 2018，33( 1) : 41-62．</li>
+<li>[19] 费孝通． 费孝通全集( 十七) ［M］ ． 呼和浩特: 内蒙古人民出版社， 2009: 438-465.</li>
+</ul>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 daseinzc
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;daseinzc
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="daseinzc/daseinzc.github.io"
+    data-repo-id="R_kgDOMU77Mg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMU77Ms4CguW3"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
+    
+</body>
+</html>
