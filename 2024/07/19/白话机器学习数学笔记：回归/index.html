@@ -222,7 +222,7 @@
 <p>$$\begin{align}x:&#x3D;x-\eta\frac{d}{dx}g(x) \tag{1.2.3}\end{align}$$</p>
 <p>$A:&#x3D;B$ 这种写法意为通过 $B$ 来定义 $A$。</p>
 <p>$\eta$ 是被称为学习率的正常数。根据学习率的大小，达到最小值的更新次数会发生变化。换种说法就是收敛速度会不同。有是会出现完全无法收敛，一直发散的情况。</p>
-<p>现在回过头看表达式 $1.2.2$ ，这个目标函数适用于刚才的讨论。但 $f_\theta(x)$ 拥有  $\theta_0$ 和 $theta_1$ 两个参数。也就是说这个目标函数是拥有 $\theta_0$ 和  $theta_1$ 的双变量函数，所以要用偏微分，因此表达式是这样。</p>
+<p>现在回过头看表达式 $1.2.2$ ，这个目标函数适用于刚才的讨论。但 $f_\theta(x)$ 拥有  $\theta_0$ 和  $\theta_1$ 两个参数。也就是说这个目标函数是拥有 $\theta_0$ 和  $\theta_1$ 的双变量函数，所以要用偏微分，因此表达式是这样。</p>
 <p>$$\begin{align}\theta_0:&amp;&#x3D;\theta_0-\eta\frac{\partial E}{\partial\theta_0}\tag*{}\newline\theta_1:&amp;&#x3D;\theta_1-\eta\frac{\partial E}{\partial\theta_1} \tag{1.2.4}\end{align}$$</p>
 <p>使用复合函数的微分得到：</p>
 <p>$$\begin{align} \theta_0:&amp;&#x3D;\theta_0-\eta\sum_{i&#x3D;1}^{n}\left(f_\theta(x^{(i)})-y^{(i)}\right) \tag*{}\newline \theta_1:&amp;&#x3D;\theta_1-\eta\sum_{i&#x3D;1}^{n}\left(f_\theta(x^{(i)})-y^{(i)}\right)x^{(i)}\tag{1.2.5}\end{align}$$</p>
