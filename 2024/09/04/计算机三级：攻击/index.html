@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Categories: study | daseinzc</title>
+    <title>计算机三级：攻击 | daseinzc</title>
     <meta name="author" content="daseinzc" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -42,6 +42,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -155,14 +159,20 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
+            <div class="article">
+    <div>
+        <h1>计算机三级：攻击</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/9/4
+        </span>
         
-        
-        
-        <span>
-            <a href="/categories/NCRE-Study/" style="background: #00bcd4">
+        <span class="category">
+            <a href="/categories/NCRE-Study/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -171,107 +181,60 @@
         </span>
         
         
-        
-        <span>
-            <a href="/categories/review/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                review
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/NCRE/" style="color: #ff7d73">
+                    NCRE
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/categories/study/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                study
-            </a>
-        </span>
-        
-        
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/7/19</div>
-            <a href="/2024/07/19/%E7%99%BD%E8%AF%9D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9B%9E%E5%BD%92/">
-                <h3>白话机器学习数学笔记：回归（一）</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/study/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        study
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/Machine-learning/" style="color: #ff7d73">
-                            Machine learning
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h1 id="计算机三级：攻击"><a href="#计算机三级：攻击" class="headerlink" title="计算机三级：攻击"></a>计算机三级：攻击</h1><span id="more"></span>
+
+<ol>
+<li><p><strong>SYN Flooding 攻击：</strong>使用无效的IP地址，利用TCP连接的三次握手过程，使得受害主机处于开放会话的请求之中，直至连接超时。在此期间，受害主机将会连续接受这种话请求,最终因耗尽资源而停止响应。、</p>
+</li>
+<li><p><strong>DDos攻击：</strong>利用攻破的多个系统发送大量请求去集中攻击其他目标，受害设别因为无法处理而拒绝服务</p>
+</li>
+<li><p><strong>SQL注入攻击：</strong>属于利用系统漏洞，基于网络的入侵防护系统和基于主机入侵防护系统都难以阻断。防火墙（基于网络的防护系统）无法阻断这种攻击。</p>
+</li>
+<li><p><strong>Land攻击：</strong>向某个设备发送数据包，并将数据包的源IP地址和目的地址都设置成攻击目标的地址。</p>
+</li>
+<li><p><strong>协议欺骗攻击：</strong>通过伪造某台主机的IP地址窃取特权的攻击。有以下几种：</p>
+</li>
+</ol>
+<p><strong>IP欺骗攻击：</strong>通过伪造某台主机的IP地址获取特权，进而进行攻击的技术。</p>
+<p><strong>ARP欺骗攻击</strong></p>
+<p><strong>DNS欺骗攻击：</strong>攻击者采用某种欺骗手段，使用户查询服务器进行域名解析是获得一个错误的IP地址，从而可以将用户引导到错误的Internet站点。</p>
+<p><strong>源路由欺骗攻击</strong></p>
+<ol>
+<li><strong>Cookie篡改攻击：</strong>通过对Cookie的篡改可以实现非法访问目标站点，基于玩罗德入侵防护系统无法阻断。</li>
+<li><strong>Smurf 攻击：</strong>攻击者冒充受害主机的 IP 地址，向一个大的网络发送 echo request 的定向广播包，此网络的许多主机都做出回应，受害主机会 收到大龄的 echo reply 消息。基于网络的入侵防护系统可以阻断 Smurf 攻击。</li>
+<li>基于网络防护系统无法阻断<strong>Cookie篡改攻击、SQL注入攻击、DNS欺骗。</strong></li>
+<li>基于网络的入侵防护系统和主机都难以阻断的是<strong>跨站脚本攻击 、SQL 注入攻击</strong>。</li>
+</ol>
+
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/7/11</div>
-            <a href="/2024/07/11/Python%E5%88%9D%E5%AD%A6%E8%80%85%E6%80%BB%E7%BB%93/">
-                <h3>Python初学者总结</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/study/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        study
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/Python/" style="color: #00a596">
-                            Python
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
     </div>
+    
+    
+    
     
 </div>
 
@@ -303,6 +266,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="daseinzc/daseinzc.github.io"
+    data-repo-id="R_kgDOMU77Mg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMU77Ms4CguW3"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>

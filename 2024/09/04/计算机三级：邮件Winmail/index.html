@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Hello World | daseinzc</title>
+    <title>计算机三级：邮件Winmail | daseinzc</title>
     <meta name="author" content="daseinzc" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -161,35 +161,66 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>Hello World</h1>
+        <h1>计算机三级：邮件Winmail</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/7/11
+            2024/9/4
         </span>
         
+        <span class="category">
+            <a href="/categories/NCRE-Study/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                NCRE Study
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/NCRE/" style="color: #ffa2c4">
+                    NCRE
+                </a>
+            </span>
+            
+        </span>
         
     </div>
     
     <div class="content" v-pre>
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+        <h1 id="计算机三级：邮件Winmail"><a href="#计算机三级：邮件Winmail" class="headerlink" title="计算机三级：邮件Winmail"></a>计算机三级：邮件Winmail</h1><span id="more"></span>
 
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<ol>
+<li>Winmail 邮件服务器支持<strong>基于 Web 方式</strong>的访问和管理，因此在安装邮件服务器软件之前要安装 IIS 。</li>
+<li>Winmail 邮件服务器允许用户<strong>自行注册新邮箱</strong> ，需输入邮箱名、密码等信息，而域名是服务器固定的，并不能自行设置。但 Winmail 用户不可以使用 Outlook 自行注册新邮箱。</li>
+<li>在 Winmail <strong>快速设置向导</strong>（不是系统设置）中<strong>创建新用户</strong>时，输入新建用户的信息，包括<strong>用户名、域名及用户密码</strong>（不是系统邮箱的密码、管理员密码），可选择是否允许客户通过Winmail 注册新邮箱。</li>
+<li><strong>建立邮件路由</strong>时，需在 DNS 服务器中建立该<strong>邮件服务器主机记录</strong>和<strong>邮件交换器记录（</strong>缺一不可 ）。</li>
+<li><strong>发送邮件</strong> 时通常采用 <strong>SMTP</strong> 协议 <strong>接收&#x2F;读取</strong> 邮件时通常采用<strong>POP3</strong> 或者 <strong>IMAP</strong> 协议 。Winmail 用户使用浏览器查看邮件会使用到 <strong>HTTP 协议</strong> 。 CMIP 不属于电子邮件系统协议。</li>
+<li><strong>邮件交换器记录的配置只能在服务器上，不能通过浏览器配置。</strong></li>
+<li><strong>管理工具</strong>包括系统设置、域名设置、用户和组设置、系统状态和系统日志等项目。 <strong>（不包含邮件管理）</strong></li>
+<li>在域名设置中 （不是系统设置 ），可以增加新的域，用于构建<strong>虚拟邮件服务器</strong> 、删除已有的域 。<strong>域名设置是可设置 WinmaiWinmail邮件服务器是否允许自行注册新用户的选项 。</strong></li>
+<li><strong>系统设置</strong>包括 SMTP 设置 、邮件过滤更改管理员密码等。（没有域名设置）。</li>
+<li>使用 Outlook 等客户端软件只能访问Winmail邮件服务器 ， <strong>不能管理</strong> Winmail 邮件服务器。</li>
+<li>工作过程</li>
+</ol>
+<ul>
+<li>用户在客户端创建新邮件</li>
+<li>客户端软件使用SMTP协议将邮件发送到发件方的服务器</li>
+<li>发件方服务器使用SMTP协议将邮件发到收件方的邮件服务器</li>
+<li>接收方邮件服务器将收到邮件储存的待处理</li>
+<li>接收方客户端软件使用POP3或IMAP4协议从邮件服务器读取软件</li>
+</ul>
 
     </div>
     
