@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>社会心理学第一讲：导论 | daseinzc</title>
+    <meta name="author" content="daseinzc" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>DASEINZC</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;DASEINZC</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>社会心理学第一讲：导论</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/10/17
+        </span>
+        
+        <span class="category">
+            <a href="/categories/Social-Psychology-Study/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                Social Psychology Study
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/Sociology/" style="color: #00bcd4">
+                    Sociology
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="社会心理学第一讲：导论"><a href="#社会心理学第一讲：导论" class="headerlink" title="社会心理学第一讲：导论"></a>社会心理学第一讲：导论</h1><span id="more"></span>
+
+<h2 id="一、社会心理学的研究对象"><a href="#一、社会心理学的研究对象" class="headerlink" title="一、社会心理学的研究对象"></a>一、社会心理学的研究对象</h2><h3 id="西方经典定义："><a href="#西方经典定义：" class="headerlink" title="西方经典定义："></a>西方经典定义：</h3><p>有学者筛选出30条代表性定义。其研究对象归为四类：<strong>社会互动</strong>，<strong>人际关系</strong>，<strong>社会影响</strong>和<strong>社会化</strong>。<em><strong>分歧在于如何有效的研究社会行为</strong></em></p>
+<ul>
+<li><strong>心理学取向</strong>：心理学家注重个体，想要通过个体的人格特征解释人的行为。<ul>
+<li>麦独孤：强调个人，研究行为的机制和先天倾向</li>
+<li>弗劳德·奥尔波特：社会心理学家研究个人的社会行为与意识。</li>
+<li>肖和康斯坦佐：社会心理学是关于作为社会刺激之反应的个人行为的科学研究。</li>
+<li>高尔顿·奥尔波特：社会心理学旨在理解或解释个人的思想、情感和行为如何受他人实际的、想象的和隐含的存在的影响</li>
+</ul>
+</li>
+<li><strong>社会学取向</strong>：社会学家注重群体，欲图通过人们在群体中的互动解释人的行为。<ul>
+<li>罗斯：关注集群行为，把人的行为放在社会背景中加以理解。</li>
+<li>埃尔伍德：社会心理学是关于社会互动的研究，他所关心的是人类群体行为的心理学解释。</li>
+<li>麦考斯、西蒙斯：社会心理学”关注于社会互动的研究“，他所枪带哦的重点是 各种”塑造群体“的因素，如社会自我于社会化。</li>
+<li>尹恩·罗伯逊：”社会心理学的研究有助于理解社会环境对人类行为的影响“，”人类行为主要取决于人们所属的群体和群体间的互动及影响“。</li>
+</ul>
+</li>
+<li><strong>文化人类学</strong>：为关于人类行为的研究加入了一股富有生气的力量<ul>
+<li>怀特：在心理学及大部分社会学之外，存在着另外一类人人类行为的决定因素。</li>
+</ul>
+</li>
+</ul>
+<h3 id="中国学者观点："><a href="#中国学者观点：" class="headerlink" title="中国学者观点："></a>中国学者观点：</h3><ul>
+<li>吴江霖：社会心理学是研究个体或若干个体在特定社会生活条件下心理活动的变化发展的科学。</li>
+<li>沙莲香：社会心理是人们在社会生活中自发产生，并相互影响的主体反应；社会心理学就是研究社会心理的基本过程及其变化发展的条件和规律的具体科学。</li>
+<li>王康:社会心理学是研究社会环境对人的思想、感情、态度、行为产生什么影响的学科。</li>
+<li>周晓虹：多维视野中的综合尝试</li>
+</ul>
+<h3 id="作为社会行为研究的社会心理学："><a href="#作为社会行为研究的社会心理学：" class="headerlink" title="作为社会行为研究的社会心理学："></a>作为社会行为研究的社会心理学：</h3><p><strong>社会行为：</strong></p>
+<ul>
+<li>定义：<strong>社会行为</strong>是生活在<strong>特定社会生活条件</strong>下，具有<strong>独特的文化</strong>和<strong>完整的人格</strong>的人对各种简单与复杂的<strong>社会刺激</strong>所作的反应。</li>
+<li>基本含义：<ul>
+<li>人是社会行为的主体</li>
+<li>社会刺激是社会客体对人产生的作用</li>
+<li>社会行为是人对社会刺激做出的反应</li>
+</ul>
+</li>
+<li>基本特征：<ul>
+<li>主动性与受动性：<ul>
+<li>主动性：社会行为是对包括他人行为在内的社会刺激的反应</li>
+<li>受动性：个人的社会行为也构成对他人行为的刺激</li>
+</ul>
+</li>
+<li>内隐性与外显性：<ul>
+<li>内隐性：内在的体验过程，即通常所说的狭义的心理过程</li>
+<li>外显性：外在的表现过程，即狭义的行为过程</li>
+</ul>
+</li>
+<li>个体性与群体性<ul>
+<li>个体性：行为主体既包括作为群体的个人</li>
+<li>群体性：也包括由个人组成的规模不等的群体</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>制约因素：<ul>
+<li>社会<ul>
+<li>社会是人们交互作用的产物</li>
+<li>是由在共同物质生产活动基础上相互联系的人们组成的群体</li>
+</ul>
+</li>
+<li>文化：<ul>
+<li>文化是在<strong>一特定群体或社会的生活中形成的</strong>并为其成员所共有的生存方式的总和</li>
+</ul>
+</li>
+<li>人格:<ul>
+<li>个人在社会化的过程中形成的具有各种内在特征的完整系统</li>
+<li>人格系统为人们的行为提供了稳固、一致的反应模式。</li>
+<li>人格是个人成分和群体成分的统一</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>研究范围：<ul>
+<li>个体社会心理与社会行为</li>
+<li>群体行为与社会心理</li>
+<li>社会互动的心理与行动</li>
+<li>应用社会心理学</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、社会心理学的学科性质"><a href="#二、社会心理学的学科性质" class="headerlink" title="二、社会心理学的学科性质"></a>二、社会心理学的学科性质</h2><p>与社会心理学临近的学科有社会学、心理学和文化人类学，其不仅构成了社会心理学最直接的理论来源，而且至今仍然与社会心理学保持着千丝万缕的关系</p>
+<h3 id="交叉性与独立性"><a href="#交叉性与独立性" class="headerlink" title="交叉性与独立性"></a>交叉性与独立性</h3><ul>
+<li><p>起源上看，社会心理学是在母体学科的基础上形成的；也是母体学科对人类行为等进行解释时彼此接近相互渗透的结果</p>
+</li>
+<li><p>从研究对象、方法和理论体系看</p>
+<ul>
+<li>社会心理学是一门独立学科</li>
+<li>不是单一学科的附属物，也不是上述学科的简单的拼凑和混合</li>
+<li>形成后有着全新的性质和特点。</li>
+</ul>
+<p>  林泽、阿伦森：《社会心理学手册》</p>
+<ul>
+<li>心理学：认知论、社会心理学实验</li>
+<li>社会学：角色论、组织、社会化、社会结构与行为、集群行为</li>
+<li>文化人类学：文化心理学、国民性</li>
+</ul>
+</li>
+</ul>
+<h3 id="理论性与应用性"><a href="#理论性与应用性" class="headerlink" title="理论性与应用性"></a>理论性与应用性</h3><ul>
+<li>霍桑效应</li>
+<li>大萧条时代的舆论与谣言</li>
+<li>二战时挂怒民族性格与信仰等研究</li>
+<li>二战后的学科大发展</li>
+</ul>
+<h2 id="三、社会心理学的研究取向"><a href="#三、社会心理学的研究取向" class="headerlink" title="三、社会心理学的研究取向"></a>三、社会心理学的研究取向</h2><p>心理学取向：强调个体变量</p>
+<p>社会学取向：强调社会变量的重要性</p>
+<p>文化人类学变量：强调文化变量的重要性</p>
+<p>马克思主义与社会心理学</p>
+<h3 id="各个研究取向的基本特点"><a href="#各个研究取向的基本特点" class="headerlink" title="各个研究取向的基本特点"></a>各个研究取向的基本特点</h3><ul>
+<li>心理学取向：从个人的人格结构中寻求对人类社会行为的解释<ul>
+<li>控制性实验方法</li>
+<li>精神分析理论，群体动力学理论，社会认知理论</li>
+</ul>
+</li>
+<li>社会学取向：通过强调社会地位、社会角色、社会化等塑造群体的因素来研究人们的社会互动，进而达到对人类行为本质的理解。<ul>
+<li>问卷法和访谈法</li>
+<li>符号互动论、社会交换论、社会角色论、参照群体论</li>
+</ul>
+</li>
+<li>文化人类学：从文化因素入手探讨有关人类行为的解释<ul>
+<li>跨文化的现场研究法</li>
+<li>文化与人格理论</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>比较项&#x2F;取向</th>
+<th>心理学</th>
+<th>社会学</th>
+<th>文化人类学</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>解释项</td>
+<td>个人品质</td>
+<td>社会角色</td>
+<td>人格因素</td>
+</tr>
+<tr>
+<td>自变量</td>
+<td>个人变量（生物）</td>
+<td>社会变量（地位&#x2F;情景）</td>
+<td>文化变量（生存方式）</td>
+</tr>
+<tr>
+<td>获得途径</td>
+<td>社会学习</td>
+<td>社会化</td>
+<td>文化熏染</td>
+</tr>
+<tr>
+<td>由……激发</td>
+<td>生理环境</td>
+<td>社会环境</td>
+<td>文化环境</td>
+</tr>
+<tr>
+<td>整合为</td>
+<td>人格</td>
+<td>社会自我</td>
+<td>民族性格</td>
+</tr>
+<tr>
+<td>欲解释的基本现象</td>
+<td>个人行为</td>
+<td>社会互动与群体行为</td>
+<td>文化行为</td>
+</tr>
+</tbody></table>
+<p>马克思主义与社会心理学</p>
+<ul>
+<li>社会存在决定社会意识<ul>
+<li>揭示了人的本性与本质：一切社会关系的总和</li>
+<li>任何人类个体的社会心理和社会行为都受制于所生存的社会历史条件</li>
+<li>相似的社会心理与社会行为由其间的社会文化环境决定的</li>
+</ul>
+</li>
+<li>社会心理的能动作用<ul>
+<li>人类社会的活动具有自觉的目的性</li>
+<li>人类社会的活动在开始前就已在头脑中有了预期结果</li>
+</ul>
+</li>
+</ul>
+<h2 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h2><ul>
+<li>如何理解社会心理学的研究对象</li>
+<li>人类社会心理和社会行为主要受哪些主要因素制约</li>
+<li>怎样理解社会心理学的交叉性和独立性</li>
+<li>如何理解马克思主义对社会心理学的指导意义</li>
+</ul>
+<h3 id="复习框架：社会心理学第一讲总结"><a href="#复习框架：社会心理学第一讲总结" class="headerlink" title="复习框架：社会心理学第一讲总结"></a><strong>复习框架：社会心理学第一讲总结</strong></h3><hr>
+<h3 id="1-社会心理学的研究对象是什么？有哪些不同的研究取向？"><a href="#1-社会心理学的研究对象是什么？有哪些不同的研究取向？" class="headerlink" title="1. 社会心理学的研究对象是什么？有哪些不同的研究取向？"></a><strong>1. 社会心理学的研究对象是什么？有哪些不同的研究取向？</strong></h3><h3 id="答案："><a href="#答案：" class="headerlink" title="答案："></a><strong>答案：</strong></h3><ul>
+<li><strong>研究对象</strong>：社会心理学的研究对象是<strong>社会行为</strong>，包括个体和群体在社会和文化环境中的心理活动和反应。它不仅关注外显行为，还包括情感、思维和态度等内隐过程。</li>
+<li><strong>三种主要研究取向</strong>：<ul>
+<li><strong>心理学取向</strong>：侧重个体，关注个人品质（如人格）和内在心理过程。</li>
+<li><strong>社会学取向</strong>：侧重群体，研究社会互动、角色和群体行为对个体的影响。</li>
+<li><strong>文化人类学取向</strong>：侧重文化因素，探讨文化背景如何影响个体和群体行为。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-中国学者在20世纪80年代以来对社会心理学研究对象有何不同的理解？"><a href="#2-中国学者在20世纪80年代以来对社会心理学研究对象有何不同的理解？" class="headerlink" title="2. 中国学者在20世纪80年代以来对社会心理学研究对象有何不同的理解？"></a><strong>2. 中国学者在20世纪80年代以来对社会心理学研究对象有何不同的理解？</strong></h3><h3 id="答案：-1"><a href="#答案：-1" class="headerlink" title="答案："></a><strong>答案：</strong></h3><ul>
+<li><strong>吴江霖</strong>（1982年）：强调个体在特定社会条件下的心理变化。</li>
+<li><strong>沙莲香</strong>（1987年）：关注社会心理的自发性和互动性，研究其变化发展的规律。</li>
+<li><strong>王康</strong>（1985年）：探讨社会环境对个体思想、情感和行为的影响。</li>
+<li><strong>周晓虹</strong>（1990年）：采用多维视野，结合社会、文化和个体的反应过程。</li>
+</ul>
+<blockquote>
+<p>记忆提示：每位学者都有一个核心概念，吴江霖（个体）、沙莲香（互动）、王康（社会环境）、周晓虹（多维视野）。</p>
+</blockquote>
+<hr>
+<h3 id="3-社会心理学的交叉性和独立性如何帮助它成为一门独立学科？你能举一个例子说明它如何从母体学科中借鉴理论吗？"><a href="#3-社会心理学的交叉性和独立性如何帮助它成为一门独立学科？你能举一个例子说明它如何从母体学科中借鉴理论吗？" class="headerlink" title="3. 社会心理学的交叉性和独立性如何帮助它成为一门独立学科？你能举一个例子说明它如何从母体学科中借鉴理论吗？"></a><strong>3. 社会心理学的交叉性和独立性如何帮助它成为一门独立学科？你能举一个例子说明它如何从母体学科中借鉴理论吗？</strong></h3><h3 id="答案：-2"><a href="#答案：-2" class="headerlink" title="答案："></a><strong>答案：</strong></h3><ul>
+<li><strong>交叉性</strong>：<ul>
+<li>社会心理学从社会学、心理学和文化人类学中借鉴理论和方法。它整合了社会学对群体互动的研究、心理学对个体心理过程的研究以及文化人类学对文化因素的研究。</li>
+</ul>
+</li>
+<li><strong>独立性</strong>：<ul>
+<li>社会心理学在借鉴母体学科的基础上发展了独特的理论，如<strong>社会认知理论</strong>和<strong>群体动力学理论</strong>，并使用实验、调查和跨文化研究等方法来研究个体和群体行为。</li>
+</ul>
+</li>
+<li><strong>例子</strong>：<strong>群体动力学理论</strong>结合了社会学对群体行为的研究和心理学的实验方法，并发展出“社会场域”的概念，研究群体如何塑造个体行为。</li>
+</ul>
+<hr>
+<h3 id="4-文化、社会和人格如何共同影响社会行为？"><a href="#4-文化、社会和人格如何共同影响社会行为？" class="headerlink" title="4. 文化、社会和人格如何共同影响社会行为？"></a><strong>4. 文化、社会和人格如何共同影响社会行为？</strong></h3><h3 id="答案：-3"><a href="#答案：-3" class="headerlink" title="答案："></a><strong>答案：</strong></h3><ul>
+<li><strong>文化</strong>：提供宏观的行为框架和规范，决定个体对社会刺激的理解和反应。例如，集体主义文化更强调群体和谐。</li>
+<li><strong>社会</strong>：通过社会结构、角色和规范影响个体行为。社会为个体提供角色，个体在不同社会情境中扮演不同角色。</li>
+<li><strong>人格</strong>：提供稳定的行为模式。人格是社会化过程的结果，决定个体在特定社会和文化背景下如何反应。例如，外向和内向人格对相同社会情境的反应会不同。</li>
+</ul>
+<blockquote>
+<p>总结：文化、社会和人格这三者相互作用，共同塑造个体在特定社会和文化环境中的行为。</p>
+</blockquote>
+<hr>
+<h3 id="补充：马克思主义与社会心理学"><a href="#补充：马克思主义与社会心理学" class="headerlink" title="补充：马克思主义与社会心理学"></a><strong>补充：马克思主义与社会心理学</strong></h3><ul>
+<li><strong>马克思主义</strong>强调<strong>社会存在决定社会意识</strong>，揭示了社会环境如何影响个体的社会心理和行为。它为理解社会与个体的互动关系提供了理论指导。</li>
+</ul>
+<hr>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 daseinzc
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;daseinzc
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="daseinzc/daseinzc.github.io"
+    data-repo-id="R_kgDOMU77Mg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOMU77Ms4CguW3"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
+    
+</body>
+</html>
