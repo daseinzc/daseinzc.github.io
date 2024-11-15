@@ -103,6 +103,32 @@
   }
 </script>
 
+<!-- 引入 scroll-reveal.css -->
+
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  <!-- 滚动显现效果的 JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+  
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('scroll-reveal-show'); // 添加触发动画的类
+            observer.unobserve(entry.target); // 停止观察，防止重复触发
+          }
+        });
+      });
+  
+      revealElements.forEach((el) => observer.observe(el));
+    });
+  </script>
+  
+
 <meta name="generator" content="Hexo 7.3.0"></head>
     <body
         data-color-scheme="light/dark/auto"
@@ -166,7 +192,7 @@
     <div class="divider"></div>
     <div class="categories">
         
-        <a href="/categories/NCRE-Study/" class="category">NCRE Study</a><a href="/categories/github/" class="category">github</a><a href="/categories/Study/" class="category">Study</a><a href="/categories/review/" class="category">review</a><a href="/categories/Social-Psychology-Study/" class="category">Social Psychology Study</a><a href="/categories/Math-Study/" class="category">Math Study</a><a href="/categories/Sociology-Study/" class="category">Sociology Study</a>
+        <a href="/categories/NCRE-Study/" class="category">NCRE Study</a><a href="/categories/Study/" class="category">Study</a><a href="/categories/github/" class="category">github</a><a href="/categories/review/" class="category">review</a><a href="/categories/Social-Psychology-Study/" class="category">Social Psychology Study</a><a href="/categories/Math-Study/" class="category">Math Study</a><a href="/categories/Sociology-Study/" class="category">Sociology Study</a>
     </div>
 </div>
 
