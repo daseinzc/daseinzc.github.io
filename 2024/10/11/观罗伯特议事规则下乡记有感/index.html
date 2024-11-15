@@ -339,6 +339,23 @@
     </div>
 </footer>
 
+<!-- 滚动显现效果的 JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+  
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('scroll-reveal-show'); // 添加触发动画的类
+            observer.unobserve(entry.target); // 停止观察，防止重复触发
+          }
+        });
+      });
+  
+      revealElements.forEach((el) => observer.observe(el));
+    });
+  </script>
 
         
 <script src="/js/main.js"></script>
