@@ -10,23 +10,22 @@
     <link rel="shortcut icon" href="/theme-img/favicon.png">
   
   
-    <link rel='manifest' href='&lt;path-to-manifest&gt;'>
+  <link rel='manifest' href='&lt;path-to-manifest&gt;'>
   
 
-  
-  
-  
-  <meta property="og:title" content="社会心理学第五讲：社会认知 - daseinzc" />
-  
-  <meta property="og:type" content="article" />
-  
-  <meta property="og:url" content="https://daseinzc.github.io/2024/11/15/%E7%A4%BE%E4%BC%9A%E5%BF%83%E7%90%86%E5%AD%A6%E7%AC%AC%E4%BA%94%E8%AE%B2%EF%BC%9A%E7%A4%BE%E4%BC%9A%E8%AE%A4%E7%9F%A5/index.html" />
-  
-  <meta property="og:image" content="/favicon.png" />
-  
-  <meta property="og:article:published_time" content="2024-11-15T12:30:26.000Z" />
-  
-  <meta property="og:article:author" content="daseinzc" />
+  <meta name="description" content="社会心理学第五讲：社会认知">
+<meta property="og:type" content="article">
+<meta property="og:title" content="社会心理学第五讲：社会认知">
+<meta property="og:url" content="https://daseinzc.github.io/2024/11/15/%E7%A4%BE%E4%BC%9A%E5%BF%83%E7%90%86%E5%AD%A6%E7%AC%AC%E4%BA%94%E8%AE%B2%EF%BC%9A%E7%A4%BE%E4%BC%9A%E8%AE%A4%E7%9F%A5/index.html">
+<meta property="og:site_name" content="daseinzc">
+<meta property="og:description" content="社会心理学第五讲：社会认知">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-15T12:30:26.000Z">
+<meta property="article:modified_time" content="2024-11-15T13:38:38.076Z">
+<meta property="article:author" content="daseinzc">
+<meta property="article:tag" content="Sociology">
+<meta name="twitter:card" content="summary">
+
   
   
 
@@ -43,8 +42,6 @@
 <link rel="stylesheet" href="/css/code-highlighting.css">
 
   
-<link rel="stylesheet" href="/css/components.css">
-
   
 <link rel="stylesheet" href="/css/nav.css">
 
@@ -82,50 +79,21 @@
   
   
   
-
   
-
-<!-- 引用 manifest.json -->
-<link rel="manifest" href="/manifest.json">
-
-<!-- 注册 Service Worker -->
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("/sw.js").then(function(registration) {
-      console.log('Service Worker registered with scope:', registration.scope);
-    }).catch(function(error) {
-      console.log('Service Worker registration failed:', error);
-    });
-  }
-</script>
-
-<!-- 引入 scroll-reveal.css -->
-
   
 <link rel="stylesheet" href="/css/scroll-reveal.css">
 
   
   
-  <!-- 滚动显现效果的 JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const revealElements = document.querySelectorAll('.scroll-reveal');
   
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('scroll-reveal-show'); // 添加触发动画的类
-            observer.unobserve(entry.target); // 停止观察，防止重复触发
-          }
-        });
-      });
-  
-      revealElements.forEach((el) => observer.observe(el));
-    });
-  </script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
+  <script src="js/smooth-scroll.js"></script>
   
 
+  
 <meta name="generator" content="Hexo 7.3.0"></head>
+
     <body
         data-color-scheme="light/dark/auto"
         data-uppercase-categories="true"
@@ -437,25 +405,10 @@
             </div>
         
     </div>
+    
 </footer>
 
-<!-- 滚动显现效果的 JavaScript -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const revealElements = document.querySelectorAll('.scroll-reveal');
-  
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('scroll-reveal-show'); // 添加触发动画的类
-            observer.unobserve(entry.target); // 停止观察，防止重复触发
-          }
-        });
-      });
-  
-      revealElements.forEach((el) => observer.observe(el));
-    });
-  </script>
+
 
         
 <script src="/js/main.js"></script>

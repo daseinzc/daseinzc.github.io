@@ -10,19 +10,20 @@
     <link rel="shortcut icon" href="/theme-img/favicon.png">
   
   
-    <link rel='manifest' href='&lt;path-to-manifest&gt;'>
+  <link rel='manifest' href='&lt;path-to-manifest&gt;'>
   
 
-  
-  
-  
-  <meta property="og:title" content="Category: Math Study - daseinzc" />
-  
-  <meta property="og:type" content="website" />
-  
-  <meta property="og:url" content="https://daseinzc.github.io/categories/Math-Study/index.html" />
-  
-  <meta property="og:image" content="/favicon.png" />
+  <meta name="description" content="welcome to my blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="daseinzc">
+<meta property="og:url" content="https://daseinzc.github.io/categories/Math-Study/index.html">
+<meta property="og:site_name" content="daseinzc">
+<meta property="og:description" content="welcome to my blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="daseinzc">
+<meta property="article:tag" content="daseinzccom">
+<meta name="twitter:card" content="summary">
+
   
   
 
@@ -39,8 +40,6 @@
 <link rel="stylesheet" href="/css/code-highlighting.css">
 
   
-<link rel="stylesheet" href="/css/components.css">
-
   
 <link rel="stylesheet" href="/css/nav.css">
 
@@ -82,50 +81,21 @@
   
   
   
-
   
-
-<!-- 引用 manifest.json -->
-<link rel="manifest" href="/manifest.json">
-
-<!-- 注册 Service Worker -->
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("/sw.js").then(function(registration) {
-      console.log('Service Worker registered with scope:', registration.scope);
-    }).catch(function(error) {
-      console.log('Service Worker registration failed:', error);
-    });
-  }
-</script>
-
-<!-- 引入 scroll-reveal.css -->
-
   
 <link rel="stylesheet" href="/css/scroll-reveal.css">
 
   
   
-  <!-- 滚动显现效果的 JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const revealElements = document.querySelectorAll('.scroll-reveal');
   
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('scroll-reveal-show'); // 添加触发动画的类
-            observer.unobserve(entry.target); // 停止观察，防止重复触发
-          }
-        });
-      });
-  
-      revealElements.forEach((el) => observer.observe(el));
-    });
-  </script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
+  <script src="js/smooth-scroll.js"></script>
   
 
+  
 <meta name="generator" content="Hexo 7.3.0"></head>
+
     <body
         data-color-scheme="light/dark/auto"
         data-uppercase-categories="true"
@@ -281,25 +251,10 @@
             </div>
         
     </div>
+    
 </footer>
 
-<!-- 滚动显现效果的 JavaScript -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const revealElements = document.querySelectorAll('.scroll-reveal');
-  
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('scroll-reveal-show'); // 添加触发动画的类
-            observer.unobserve(entry.target); // 停止观察，防止重复触发
-          }
-        });
-      });
-  
-      revealElements.forEach((el) => observer.observe(el));
-    });
-  </script>
+
 
         
 <script src="/js/main.js"></script>
