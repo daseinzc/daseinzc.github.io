@@ -64,6 +64,10 @@
 
   
   
+    
+<link rel="stylesheet" href="/css/giscus.css">
+
+  
   
   
   
@@ -77,18 +81,19 @@
 
   
 
-  <link rel="manifest" href="/manifest.json">
+<!-- 引用 manifest.json -->
+<link rel="manifest" href="/manifest.json">
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(function(registration) {
-        console.log('Service Worker registered with scope:', registration.scope);
-      }).catch(function(error) {
-        console.log('Service Worker registration failed:', error);
-      });
-    }
-  </script>
-  
+<!-- 注册 Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register("/sw.js").then(function(registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    }).catch(function(error) {
+      console.log('Service Worker registration failed:', error);
+    });
+  }
+</script>
 
 <meta name="generator" content="Hexo 7.3.0"></head>
     <body
@@ -166,7 +171,7 @@
     <div class="content">
         <h1 id="超级无敌帅气英俊潇洒风流倜傥的帅哥一枚"><a href="#超级无敌帅气英俊潇洒风流倜傥的帅哥一枚" class="headerlink" title="超级无敌帅气英俊潇洒风流倜傥的帅哥一枚"></a><strong>超级无敌帅气英俊潇洒风流倜傥的帅哥一枚</strong></h1><p><strong>在校大学生（社科QAQ）</strong><br><strong>做个人网站主要是好玩！！！</strong><br><strong>大概会闲着没事会写一些东西吧</strong><br><strong>嘿嘿</strong></p>
 <p><strong>网页比较粗糙，见谅喽！！！</strong></p>
-<h4 id="联系方式："><a href="#联系方式：" class="headerlink" title="联系方式："></a>联系方式：</h4><p><strong>邮箱：<a href="mailto:&#x64;&#97;&#x73;&#x65;&#x69;&#x6e;&#x7a;&#x63;&#64;&#111;&#x75;&#x74;&#x6c;&#x6f;&#111;&#x6b;&#46;&#x63;&#111;&#x6d;">&#x64;&#97;&#x73;&#x65;&#x69;&#x6e;&#x7a;&#x63;&#64;&#111;&#x75;&#x74;&#x6c;&#x6f;&#111;&#x6b;&#46;&#x63;&#111;&#x6d;</a></strong></p>
+<h4 id="联系方式："><a href="#联系方式：" class="headerlink" title="联系方式："></a>联系方式：</h4><p><strong>邮箱：<a href="mailto:&#100;&#x61;&#115;&#x65;&#105;&#x6e;&#122;&#x63;&#x40;&#x6f;&#x75;&#x74;&#108;&#111;&#111;&#107;&#x2e;&#99;&#111;&#x6d;">&#100;&#x61;&#115;&#x65;&#105;&#x6e;&#122;&#x63;&#x40;&#x6f;&#x75;&#x74;&#108;&#111;&#111;&#107;&#x2e;&#99;&#111;&#x6d;</a></strong></p>
 
     </div>
 
@@ -187,6 +192,8 @@
 
     
         
+        
+        <script src="https://giscus.app/client.js" data-repo="MrWillCom/MrWillCom.github.io" data-repo-id="MDEwOlJlcG9zaXRvcnkyODg5NTc5MTA=" data-category="Announcements" data-category-id="DIC_kwDOETkl1s4COQZm" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async> </script>
         
     
 </article>

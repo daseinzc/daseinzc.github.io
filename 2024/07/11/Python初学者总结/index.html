@@ -68,6 +68,10 @@
 
   
   
+    
+<link rel="stylesheet" href="/css/giscus.css">
+
+  
   
   
   
@@ -81,18 +85,19 @@
 
   
 
-  <link rel="manifest" href="/manifest.json">
+<!-- 引用 manifest.json -->
+<link rel="manifest" href="/manifest.json">
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(function(registration) {
-        console.log('Service Worker registered with scope:', registration.scope);
-      }).catch(function(error) {
-        console.log('Service Worker registration failed:', error);
-      });
-    }
-  </script>
-  
+<!-- 注册 Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register("/sw.js").then(function(registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    }).catch(function(error) {
+      console.log('Service Worker registration failed:', error);
+    });
+  }
+</script>
 
 <meta name="generator" content="Hexo 7.3.0"></head>
     <body
@@ -654,6 +659,8 @@ func(*lst)  #在实参位置把列表打散成位置参数进行传递，字典�
 
     
         
+        
+        <script src="https://giscus.app/client.js" data-repo="MrWillCom/MrWillCom.github.io" data-repo-id="MDEwOlJlcG9zaXRvcnkyODg5NTc5MTA=" data-category="Announcements" data-category-id="DIC_kwDOETkl1s4COQZm" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async> </script>
         
     
 </article>

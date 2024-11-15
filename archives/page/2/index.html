@@ -64,6 +64,10 @@
 
   
   
+    
+<link rel="stylesheet" href="/css/giscus.css">
+
+  
   
   
   
@@ -81,18 +85,19 @@
 
   
 
-  <link rel="manifest" href="/manifest.json">
+<!-- 引用 manifest.json -->
+<link rel="manifest" href="/manifest.json">
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(function(registration) {
-        console.log('Service Worker registered with scope:', registration.scope);
-      }).catch(function(error) {
-        console.log('Service Worker registration failed:', error);
-      });
-    }
-  </script>
-  
+<!-- 注册 Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register("/sw.js").then(function(registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    }).catch(function(error) {
+      console.log('Service Worker registration failed:', error);
+    });
+  }
+</script>
 
 <meta name="generator" content="Hexo 7.3.0"></head>
     <body
@@ -162,26 +167,6 @@
     <div class="divider"></div>
 
     <div class="post-list archives">
-        
-        <article class="post-list-item">
-            <a href="/2024/08/18/hello-world/">
-                
-                <div class="content">
-                    
-                    <div class="title">
-                        Hello World
-                    </div>
-                    
-                    
-                    <div class="time">
-                        <span>August</span>
-                        <span>&nbsp;18,&nbsp;</span>
-                        <span>2024</span>
-                    </div>
-                    
-                </div>
-            </a>
-        </article>
         
         <article class="post-list-item">
             <a href="/2024/07/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%EF%BC%9A%E5%A4%96%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE/">

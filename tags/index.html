@@ -64,6 +64,10 @@
 
   
   
+    
+<link rel="stylesheet" href="/css/giscus.css">
+
+  
   
   
   
@@ -85,18 +89,19 @@
 
   
 
-  <link rel="manifest" href="/manifest.json">
+<!-- 引用 manifest.json -->
+<link rel="manifest" href="/manifest.json">
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(function(registration) {
-        console.log('Service Worker registered with scope:', registration.scope);
-      }).catch(function(error) {
-        console.log('Service Worker registration failed:', error);
-      });
-    }
-  </script>
-  
+<!-- 注册 Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register("/sw.js").then(function(registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    }).catch(function(error) {
+      console.log('Service Worker registration failed:', error);
+    });
+  }
+</script>
 
 <meta name="generator" content="Hexo 7.3.0"></head>
     <body
@@ -161,7 +166,7 @@
     <div class="divider"></div>
     <div class="tags">
         
-        <a href="/tags/NCRE/" class="tag">#NCRE</a><a href="/tags/Open-Source/" class="tag">#Open Source</a><a href="/tags/Python/" class="tag">#Python</a><a href="/tags/Sociology/" class="tag">#Sociology</a><a href="/tags/Machine-learning/" class="tag">#Machine learning</a>
+        <a href="/tags/NCRE/" class="tag">#NCRE</a><a href="/tags/Python/" class="tag">#Python</a><a href="/tags/Sociology/" class="tag">#Sociology</a><a href="/tags/Machine-learning/" class="tag">#Machine learning</a><a href="/tags/Open-Source/" class="tag">#Open Source</a>
     </div>
 </div>
 

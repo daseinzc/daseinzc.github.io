@@ -64,6 +64,10 @@
 
   
   
+    
+<link rel="stylesheet" href="/css/giscus.css">
+
+  
   
   
   
@@ -85,18 +89,19 @@
 
   
 
-  <link rel="manifest" href="/manifest.json">
+<!-- 引用 manifest.json -->
+<link rel="manifest" href="/manifest.json">
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(function(registration) {
-        console.log('Service Worker registered with scope:', registration.scope);
-      }).catch(function(error) {
-        console.log('Service Worker registration failed:', error);
-      });
-    }
-  </script>
-  
+<!-- 注册 Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register("/sw.js").then(function(registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    }).catch(function(error) {
+      console.log('Service Worker registration failed:', error);
+    });
+  }
+</script>
 
 <meta name="generator" content="Hexo 7.3.0"></head>
     <body
@@ -161,7 +166,7 @@
     <div class="divider"></div>
     <div class="categories">
         
-        <a href="/categories/NCRE-Study/" class="category">NCRE Study</a><a href="/categories/github/" class="category">github</a><a href="/categories/study/" class="category">study</a><a href="/categories/review/" class="category">review</a><a href="/categories/Math-Study/" class="category">Math Study</a><a href="/categories/Social-Psychology-Study/" class="category">Social Psychology Study</a><a href="/categories/Sociology-Study/" class="category">Sociology Study</a>
+        <a href="/categories/NCRE-Study/" class="category">NCRE Study</a><a href="/categories/study/" class="category">study</a><a href="/categories/review/" class="category">review</a><a href="/categories/Math-Study/" class="category">Math Study</a><a href="/categories/github/" class="category">github</a><a href="/categories/Social-Psychology-Study/" class="category">Social Psychology Study</a><a href="/categories/Sociology-Study/" class="category">Sociology Study</a>
     </div>
 </div>
 
