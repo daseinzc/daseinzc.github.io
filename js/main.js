@@ -1,24 +1,8 @@
 ;(() => {
-    var navEl = document.getElementById('theme-nav');
-    navEl.addEventListener('click', e => {
-      if (window.innerWidth <= 600) {
-        if (!navEl.classList.contains('open')) {
-          navEl.style.setProperty(
-            '--open-height',
-            48 +
-              document.querySelector('#theme-nav .nav-items').clientHeight +
-              'px',
-          );
-        }
-        navEl.classList.toggle('open');
-      } else {
-        navEl.style.removeProperty('--open-height');
-        navEl.classList.remove('open');
-      }
-    });
-  
-    window.addEventListener('resize', () => {
-      if (navEl.classList.contains('open')) {
+  var navEl = document.getElementById('theme-nav');
+  navEl.addEventListener('click', e => {
+    if (window.innerWidth <= 600) {
+      if (!navEl.classList.contains('open')) {
         navEl.style.setProperty(
           '--open-height',
           48 +
@@ -26,193 +10,202 @@
             'px',
         );
       }
-      if (window.innerWidth > 600) {
-        navEl.style.removeProperty('--open-height');
-        navEl.classList.remove('open');
-      }
-    });
-  
-    // a simple solution for managing cookies
-    const Cookies = new (class {
-      get(key, fallback) {
-        const temp = document.cookie
-          .split('; ')
-          .find(row => row.startsWith(key + '='));
-        if (temp) {
-          return temp.split('=')[1];
-        } else {
-          return fallback;
-        }
-      }
-      set(key, value) {
-        document.cookie =
-          key +
-          '=' +
-          value +
-          '; path=' +
-          document.body.getAttribute('data-config-root');
-      }
-    })();
-  
-    const ColorScheme = new (class {
-      constructor() {
-        window
-          .matchMedia('(prefers-color-scheme: dark)')
-          .addEventListener('change', () => {
-            this.updateCurrent(Cookies.get('color-scheme', 'auto'));
-          });
-      }
-      get() {
-        const stored = Cookies.get('color-scheme', 'auto');
-        this.updateCurrent(stored);
-        return stored;
-      }
-      set(value) {
-        bodyEl.setAttribute('data-color-scheme', value);
-        Cookies.set('color-scheme', value);
-        this.updateCurrent(value);
-        return value;
-      }
-      updateCurrent(value) {
-        var current = 'light';
-        if (value == 'auto') {
-          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            current = 'dark';
-          }
-        } else {
-          current = value;
-        }
-        document.body.setAttribute('data-current-color-scheme', current);
-      }
-    })();
-  
-    if (document.getElementById('theme-color-scheme-toggle')) {
-      var bodyEl = document.body;
-      var themeColorSchemeToggleEl = document.getElementById(
-        'theme-color-scheme-toggle',
+      navEl.classList.toggle('open');
+    } else {
+      navEl.style.removeProperty('--open-height');
+      navEl.classList.remove('open');
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (navEl.classList.contains('open')) {
+      navEl.style.setProperty(
+        '--open-height',
+        48 +
+          document.querySelector('#theme-nav .nav-items').clientHeight +
+          'px',
       );
-      var options = themeColorSchemeToggleEl.getElementsByTagName('input');
-  
-      if (ColorScheme.get()) {
-        bodyEl.setAttribute('data-color-scheme', ColorScheme.get());
-      }
-  
-      for (const option of options) {
-        if (option.value == bodyEl.getAttribute('data-color-scheme')) {
-          option.checked = true;
-        }
-        option.addEventListener('change', ev => {
-          var value = ev.target.value;
-          ColorScheme.set(value);
-          for (const o of options) {
-            if (o.value != value) {
-              o.checked = false;
-            }
-          }
-        });
-      }
     }
-  
-    if (document.body.attributes['data-rainbow-banner']) {
-      var shown = false;
-      switch (document.body.attributes['data-rainbow-banner-shown'].value) {
-        case 'always':
-          shown = true;
-          break;
-        case 'auto':
-          shown =
-            new Date().getMonth() + 1 ==
-            parseInt(
-              document.body.attributes['data-rainbow-banner-month'].value,
-              10,
-            );
-          break;
-        default:
-          break;
-      }
-      if (shown) {
-        var banner = document.createElement('div');
-  
-        banner.style.setProperty(
-          '--gradient',
-          `linear-gradient(90deg, ${document.body.attributes['data-rainbow-banner-colors'].value})`,
-        );
-        banner.classList.add('rainbow-banner');
-  
-        navEl.after(banner);
-      }
+    if (window.innerWidth > 600) {
+      navEl.style.removeProperty('--open-height');
+      navEl.classList.remove('open');
     }
-  
-    if (document.body.attributes['data-toc']) {
-      const content = document.getElementsByClassName('content')[0];
-      const maxDepth = document.body.attributes['data-toc-max-depth'].value;
-  
-      var headingSelector = '';
-      for (var i = 1; i <= maxDepth; i++) {
-        headingSelector += 'h' + i + ',';
-      }
-      headingSelector = headingSelector.slice(0, -1);
-      const headings = Array.from(content.querySelectorAll(headingSelector));
-  
-      var source = headings
-        .map(heading => ({
-          html: heading.innerHTML,
-          href:
-            heading.getElementsByClassName('headerlink')[0]?.attributes['href']
-              .value ?? null,
-        }))
-        .filter(heading => heading.href);
-  
-      const tocContainer = document.createElement('aside');
-      const toc = document.createElement('div');
-      toc.classList.add('toc');
-      for (const i in source) {
-        const item = document.createElement('p');
-        const link = document.createElement('a');
-        link.href = source[i].href;
-        link.innerHTML = source[i].html;
-        link.removeChild(link.getElementsByClassName('headerlink')[0]);
-        item.appendChild(link);
-        toc.appendChild(item);
-      }
-      tocContainer.appendChild(toc);
-  
-      if (toc.children.length > 0) {
-        document
-          .getElementsByClassName('post')[0]
-          .getElementsByClassName('meta')[0]
-          .after(tocContainer);
-      }
-    }
-  
-    // Add scroll effect to hero and post list sections with additional downward slide effect
-    window.addEventListener('scroll', function() {
-      const hero = document.querySelector('.hero');
-      const postList = document.querySelector('.post-list');
-  
-      if (!hero || !postList) return;
-  
-      let scrollPosition = window.scrollY;
-  
-      // Fade out and slide down hero section
-      if (scrollPosition > 200) {
-        hero.style.opacity = 1 - scrollPosition / 400;
-        hero.style.transform = `translateY(${scrollPosition / 4}px)`;  // Downward slide effect
-        if (hero.style.opacity < 0) hero.style.opacity = 0;
+  });
+
+  // a simple solution for managing cookies
+  const Cookies = new (class {
+    get(key, fallback) {
+      const temp = document.cookie
+        .split('; ')
+        .find(row => row.startsWith(key + '='));
+      if (temp) {
+        return temp.split('=')[1];
       } else {
-        hero.style.opacity = 1;
-        hero.style.transform = 'translateY(0)';
+        return fallback;
       }
-  
-      // Fade in and slide up post list section
-      if (scrollPosition > 400) {
-        postList.style.opacity = (scrollPosition - 400) / 200;
-        postList.style.transform = `translateY(${Math.max(100 - (scrollPosition - 400) / 2, 0)}px)`;  // Slide up effect
-        if (postList.style.opacity > 1) postList.style.opacity = 1;
-      } else {
-        postList.style.opacity = 0;
-        postList.style.transform = 'translateY(100px)';
-      }
-    });
+    }
+    set(key, value) {
+      document.cookie =
+        key +
+        '=' +
+        value +
+        '; path=' +
+        document.body.getAttribute('data-config-root');
+    }
   })();
-  
+
+  const ColorScheme = new (class {
+    constructor() {
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', () => {
+          this.updateCurrent(Cookies.get('color-scheme', 'auto'));
+        });
+    }
+    get() {
+      const stored = Cookies.get('color-scheme', 'auto');
+      this.updateCurrent(stored);
+      return stored;
+    }
+    set(value) {
+      bodyEl.setAttribute('data-color-scheme', value);
+      Cookies.set('color-scheme', value);
+      this.updateCurrent(value);
+      return value;
+    }
+    updateCurrent(value) {
+      var current = 'light';
+      if (value == 'auto') {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          current = 'dark';
+        }
+      } else {
+        current = value;
+      }
+      document.body.setAttribute('data-current-color-scheme', current);
+    }
+  })();
+
+  if (document.getElementById('theme-color-scheme-toggle')) {
+    var bodyEl = document.body;
+    var themeColorSchemeToggleEl = document.getElementById(
+      'theme-color-scheme-toggle',
+    );
+    var options = themeColorSchemeToggleEl.getElementsByTagName('input');
+
+    if (ColorScheme.get()) {
+      bodyEl.setAttribute('data-color-scheme', ColorScheme.get());
+    }
+
+    for (const option of options) {
+      if (option.value == bodyEl.getAttribute('data-color-scheme')) {
+        option.checked = true;
+      }
+      option.addEventListener('change', ev => {
+        var value = ev.target.value;
+        ColorScheme.set(value);
+        for (const o of options) {
+          if (o.value != value) {
+            o.checked = false;
+          }
+        }
+      });
+    }
+  }
+
+  if (document.body.attributes['data-rainbow-banner']) {
+    var shown = false;
+    switch (document.body.attributes['data-rainbow-banner-shown'].value) {
+      case 'always':
+        shown = true;
+        break;
+      case 'auto':
+        shown =
+          new Date().getMonth() + 1 ==
+          parseInt(
+            document.body.attributes['data-rainbow-banner-month'].value,
+            10,
+          );
+        break;
+      default:
+        break;
+    }
+    if (shown) {
+      var banner = document.createElement('div');
+
+      banner.style.setProperty(
+        '--gradient',
+        `linear-gradient(90deg, ${document.body.attributes['data-rainbow-banner-colors'].value})`,
+      );
+      banner.classList.add('rainbow-banner');
+
+      navEl.after(banner);
+    }
+  }
+
+  if (document.body.attributes['data-toc']) {
+    const content = document.getElementsByClassName('content')[0];
+    const maxDepth = document.body.attributes['data-toc-max-depth'].value;
+
+    var headingSelector = '';
+    for (var i = 1; i <= maxDepth; i++) {
+      headingSelector += 'h' + i + ',';
+    }
+    headingSelector = headingSelector.slice(0, -1);
+    const headings = Array.from(content.querySelectorAll(headingSelector));
+
+    var source = headings
+      .map(heading => ({
+        html: heading.innerHTML,
+        href:
+          heading.getElementsByClassName('headerlink')[0]?.attributes['href']
+            .value ?? null,
+      }))
+      .filter(heading => heading.href);
+
+    const tocContainer = document.createElement('aside');
+    const toc = document.createElement('div');
+    toc.classList.add('toc');
+    for (const i in source) {
+      const item = document.createElement('p');
+      const link = document.createElement('a');
+      link.href = source[i].href;
+      link.innerHTML = source[i].html;
+      link.removeChild(link.getElementsByClassName('headerlink')[0]);
+      item.appendChild(link);
+      toc.appendChild(item);
+    }
+    tocContainer.appendChild(toc);
+
+    if (toc.children.length > 0) {
+      document
+        .getElementsByClassName('post')[0]
+        .getElementsByClassName('meta')[0]
+        .after(tocContainer);
+    }
+  }
+
+  // Add scroll effect to hero and post list sections with additional downward slide effect
+  window.addEventListener('scroll', function() {
+    const hero = document.querySelector('.hero');
+    const postList = document.querySelector('.post-list');
+
+    if (!hero || !postList) return;
+
+    let scrollPosition = window.scrollY;
+
+    // Fade out and slide down hero section
+    if (scrollPosition > 200) {
+      hero.style.opacity = 1 - scrollPosition / 400;
+      hero.style.transform = `translateY(${scrollPosition / 4}px)`;  // Downward slide effect
+      if (hero.style.opacity < 0) hero.style.opacity = 0;
+    } else {
+      hero.style.opacity = 1;
+      hero.style.transform = 'translateY(0)';
+    }
+
+    // Make post list fully visible immediately
+    postList.style.opacity = 1;
+    postList.style.transform = 'translateY(0)';
+  });
+})();
