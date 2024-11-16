@@ -185,7 +185,7 @@
       }
     }
   
-    // Add scroll effect to hero and post list sections
+    // Add scroll effect to hero and post list sections with additional downward slide effect
     window.addEventListener('scroll', function() {
       const hero = document.querySelector('.hero');
       const postList = document.querySelector('.post-list');
@@ -194,20 +194,24 @@
   
       let scrollPosition = window.scrollY;
   
-      // Fade out hero section
+      // Fade out and slide down hero section
       if (scrollPosition > 200) {
         hero.style.opacity = 1 - scrollPosition / 400;
+        hero.style.transform = `translateY(${scrollPosition / 4}px)`;  // Downward slide effect
         if (hero.style.opacity < 0) hero.style.opacity = 0;
       } else {
         hero.style.opacity = 1;
+        hero.style.transform = 'translateY(0)';
       }
   
-      // Fade in post list section
+      // Fade in and slide up post list section
       if (scrollPosition > 400) {
         postList.style.opacity = (scrollPosition - 400) / 200;
+        postList.style.transform = `translateY(${Math.max(100 - (scrollPosition - 400) / 2, 0)}px)`;  // Slide up effect
         if (postList.style.opacity > 1) postList.style.opacity = 1;
       } else {
         postList.style.opacity = 0;
+        postList.style.transform = 'translateY(100px)';
       }
     });
   })();
