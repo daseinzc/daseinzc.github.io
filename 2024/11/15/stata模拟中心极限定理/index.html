@@ -13,20 +13,20 @@
   <link rel='manifest' href='&lt;path-to-manifest&gt;'>
   
 
-  <meta name="description" content="&#x2F;* 设置文本为衬线体 *&#x2F;   .serif-text {     font-family: &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;   }   关于中心极限定理的模拟 do文件如下：   clear set seed 101   &#x2F;&#x2F; 让我给试出个好看的图 set obs 50000  &#x2F;&#x2F; 设置 50000 个观测值，用于存储均值  * 预先生成 gr">
+  <meta name="description" content="&#x2F;* 设置文本为衬线体 *&#x2F;   .serif-text {     font-family: &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;   }   关于中心极限定理的模拟 do文件如下：   set seed 52 set obs 500000  &#x2F;&#x2F; 设置总样本数  * 如果变量 group_id 已经存在，删除旧变量 capture drop group">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stata模拟中心极限定理">
 <meta property="og:url" content="https://daseinzc.github.io/2024/11/15/stata%E6%A8%A1%E6%8B%9F%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/index.html">
 <meta property="og:site_name" content="daseinzc">
-<meta property="og:description" content="&#x2F;* 设置文本为衬线体 *&#x2F;   .serif-text {     font-family: &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;   }   关于中心极限定理的模拟 do文件如下：   clear set seed 101   &#x2F;&#x2F; 让我给试出个好看的图 set obs 50000  &#x2F;&#x2F; 设置 50000 个观测值，用于存储均值  * 预先生成 gr">
+<meta property="og:description" content="&#x2F;* 设置文本为衬线体 *&#x2F;   .serif-text {     font-family: &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;   }   关于中心极限定理的模拟 do文件如下：   set seed 52 set obs 500000  &#x2F;&#x2F; 设置总样本数  * 如果变量 group_id 已经存在，删除旧变量 capture drop group">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2024/11/16/tegFTBSOJbhRKaM.png">
+<meta property="og:image" content="https://s2.loli.net/2024/11/17/vWnNJ3GOCzFpZ15.png">
 <meta property="article:published_time" content="2024-11-15T15:00:00.000Z">
-<meta property="article:modified_time" content="2024-11-17T02:37:49.386Z">
+<meta property="article:modified_time" content="2024-11-17T06:18:00.989Z">
 <meta property="article:author" content="daseinzc">
 <meta property="article:tag" content="Stata">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2024/11/16/tegFTBSOJbhRKaM.png">
+<meta name="twitter:image" content="https://s2.loli.net/2024/11/17/vWnNJ3GOCzFpZ15.png">
 
   
   
@@ -186,47 +186,28 @@
 <p class="serif-text">do文件如下：</p>
 
 
-<pre><code class="stata">clear
-set seed 101   // 让我给试出个好看的图
-set obs 50000  // 设置 50000 个观测值，用于存储均值
+<pre><code class="stata">set seed 52
+set obs 500000  // 设置总样本数
 
-* 预先生成 group_means 变量，用于存储每次计算的均值
-generate group_means = .
+* 如果变量 group_id 已经存在，删除旧变量
+capture drop group_id
+generate group_id = ceil(_n / 20)  // 将样本分成组，每组20个样本
 
-capture frame drop temp_frame
-frame create temp_frame 
+* 一次性生成随机数据
+generate x = runiformint(1, 6)
 
-* 循环生成样本并计算均值
-forvalues i = 1/50000 &#123;
-    frame temp_frame&#123;
-        clear     // 新建一个frame
-        
-        quietly&#123;
-            set obs 50 //样本数
-            generate x = runiformint(1,6)  // 每个样本包含 50 个 1 到 6 的随机整数
+* 按组计算均值
+collapse (mean) group_means = x, by(group_id)
 
-            * 计算样本均值
-            summarize x, meanonly
-            
-            scalar temp_mean = r(mean)  // 将均值保存到标量 temp_mean
-        &#125;
-    &#125;
-    
-    quietly replace group_means = temp_mean in `i&#39;
-    
-    if mod(`i&#39;, 2500) == 0 &#123;
-        display &quot;Progress: &quot; %5.2f ((`i&#39;/50000)*100) &quot;% complete&quot;
-    &#125;
-&#125;
-
-frame drop temp_frame //删除临时框架 
-
-* 绘制 group_means 的直方图叠加正态分布曲线
-histogram group_means, start(1) normal 
+* 绘制直方图叠加正态分布曲线
+histogram group_means, start(1) bin(40) frequency normal ///
+    xscale(range(1 6)) xlabel(1(1)6) ///
+    title(&quot;中心极限定理模拟&quot;)
 </code></pre>
 <p class="serif-text">如图所示：</p>
 
-<p><a href="https://sm.ms/image/tegFTBSOJbhRKaM" target="_blank"><img src="https://s2.loli.net/2024/11/16/tegFTBSOJbhRKaM.png" /></a></p>
+
+<p><a href="https://sm.ms/image/vWnNJ3GOCzFpZ15" target="_blank"><img src="https://s2.loli.net/2024/11/17/vWnNJ3GOCzFpZ15.png" /></a></p>
 
     </div>
 
