@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>HSGUI System Version 1.2.0 release！</title>
+      <link href="/2025/01/07/HTW_GUI/"/>
+      <url>/2025/01/07/HTW_GUI/</url>
+      
+        <content type="html"><![CDATA[<style>  /* 设置文本为衬线体 */  .serif-text {    font-family: 'Georgia', 'Times New Roman', serif;  }</style><h1 id="HTW-GUI"><a href="#HTW-GUI" class="headerlink" title="HTW_GUI"></a>HTW_GUI</h1><p>用于进行数据的简单处理和三联表生成。 含<strong>整合功能插件</strong> 插件和 <strong>UI界面</strong>。</p><h2 id="最新版本version-1-2：https-github-com-daseinzc-HTW-GUI-releases-tag-v1-2"><a href="#最新版本version-1-2：https-github-com-daseinzc-HTW-GUI-releases-tag-v1-2" class="headerlink" title="最新版本version 1.2：https://github.com/daseinzc/HTW_GUI/releases/tag/v1.2"></a><strong>最新版本version 1.2：<a href="https://github.com/daseinzc/HTW_GUI/releases/tag/v1.2">https://github.com/daseinzc/HTW_GUI/releases/tag/v1.2</a></strong></h2><h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ol><li><strong>插件程序</strong>：可以执行读取excel表，生成单个word三联表并进行整合操作。  </li><li><strong>UI 界面</strong>：提供简单的图形界面，让无需使用命令行或配置其他环境等。  </li><li>支持在多台电脑或虚拟机上安装，只要保证目录结构不变，即可正常读取文件。</li><li>左上角“文件”中“保存进度”会在本地保存一个后缀为<code>.json</code>文件，“导入进度”即选择<code>.json</code>文件导入。</li></ol><h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ul><li><p><strong>安装</strong>：  </p><ol><li>使用 <code>Setup</code> 安装向导进行安装或直接解压压缩包。  </li><li>若需要桌面快捷方式等，可在安装过程中勾选选项。</li></ol></li><li><p><strong>运行</strong>：  </p><ol><li>双击 <code>HSGUI.exe</code>或桌面快捷方式启动主页面。<strong>如果存在无法打开或长时间不响应的问题，可以右键以管理员权限打开</strong>。  </li><li>在界面下方可以点击“添加行”、“删除行”、“排序”和“输出excel文档”按钮，输出的excel文档位于同一目录下<code>input/</code>，命名为<code>data.xlsx</code>。</li><li>输出<code>data.xlsx</code>后，点击左侧导航栏中的“插件管理”，找到<code>combine_docx.exe</code>插件，点击右侧<code>运行</code>（第一次运行需要手动添加插件。点击“添加插件”，在同一目录下找到<code>extension/TTGC/combine_docx.exe</code>并添加。）。运行后，在同一目录下<code>input/word_data</code>生成单个word文档，同时最终处理结果保存在 <code>output/</code> 文件夹下。</li></ol></li></ul><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><pre><code>├─ _internal/               ├─ HSGUI.exe                    # UI相关可执行文件├─ input/                 # 需要读取的输入文件├─ output/                # 处理后的输出结果├─ 测试.json              # 测试文件└─ extension              # 插件相关可执行文件等文件</code></pre><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol><li><strong>找不到文件</strong>  <ul><li>请确保关闭杀毒软件或将文件夹加入安全名单。</li></ul></li></ol><h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><pre><code>MIT License</code></pre><h2 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h2><ul><li>此为小型程序，由python编写完成，非专业，仍在维护和改进，仅供参考和学习。  </li><li>若修改或扩展此程序，可以查看源码进行更改。</li></ul><hr><p>运行测试环境为win11系统</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> github </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Open Source </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HSGUI System Version 1.0.0 release！</title>
       <link href="/2024/12/07/HSGUI/"/>
       <url>/2024/12/07/HSGUI/</url>
@@ -38,7 +63,7 @@
       
       <categories>
           
-          <category> Study </category>
+          <category> study </category>
           
       </categories>
       
@@ -563,7 +588,7 @@
       
       <categories>
           
-          <category> Study </category>
+          <category> study </category>
           
       </categories>
       
@@ -571,31 +596,6 @@
         <tags>
             
             <tag> Python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HSGUI System Version 1.2.0 release！</title>
-      <link href="/2024/01/07/HTW_GUI/"/>
-      <url>/2024/01/07/HTW_GUI/</url>
-      
-        <content type="html"><![CDATA[<style>  /* 设置文本为衬线体 */  .serif-text {    font-family: 'Georgia', 'Times New Roman', serif;  }</style><h1 id="HTW-GUI"><a href="#HTW-GUI" class="headerlink" title="HTW_GUI"></a>HTW_GUI</h1><p>用于进行数据的简单处理和三联表生成。 含<strong>整合功能插件</strong> 插件和 <strong>UI界面</strong>。</p><h2 id="最新版本version-1-2：https-github-com-daseinzc-HTW-GUI-releases-tag-v1-2"><a href="#最新版本version-1-2：https-github-com-daseinzc-HTW-GUI-releases-tag-v1-2" class="headerlink" title="最新版本version 1.2：https://github.com/daseinzc/HTW_GUI/releases/tag/v1.2"></a><strong>最新版本version 1.2：<a href="https://github.com/daseinzc/HTW_GUI/releases/tag/v1.2">https://github.com/daseinzc/HTW_GUI/releases/tag/v1.2</a></strong></h2><h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ol><li><strong>插件程序</strong>：可以执行读取excel表，生成单个word三联表并进行整合操作。  </li><li><strong>UI 界面</strong>：提供简单的图形界面，让无需使用命令行或配置其他环境等。  </li><li>支持在多台电脑或虚拟机上安装，只要保证目录结构不变，即可正常读取文件。</li><li>左上角“文件”中“保存进度”会在本地保存一个后缀为<code>.json</code>文件，“导入进度”即选择<code>.json</code>文件导入。</li></ol><h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ul><li><p><strong>安装</strong>：  </p><ol><li>使用 <code>Setup</code> 安装向导进行安装或直接解压压缩包。  </li><li>若需要桌面快捷方式等，可在安装过程中勾选选项。</li></ol></li><li><p><strong>运行</strong>：  </p><ol><li>双击 <code>HSGUI.exe</code>或桌面快捷方式启动主页面。<strong>如果存在无法打开或长时间不响应的问题，可以右键以管理员权限打开</strong>。  </li><li>在界面下方可以点击“添加行”、“删除行”、“排序”和“输出excel文档”按钮，输出的excel文档位于同一目录下<code>input/</code>，命名为<code>data.xlsx</code>。</li><li>输出<code>data.xlsx</code>后，点击左侧导航栏中的“插件管理”，找到<code>combine_docx.exe</code>插件，点击右侧<code>运行</code>（第一次运行需要手动添加插件。点击“添加插件”，在同一目录下找到<code>extension/TTGC/combine_docx.exe</code>并添加。）。运行后，在同一目录下<code>input/word_data</code>生成单个word文档，同时最终处理结果保存在 <code>output/</code> 文件夹下。</li></ol></li></ul><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><pre><code>├─ _internal/               ├─ HSGUI.exe                    # UI相关可执行文件├─ input/                 # 需要读取的输入文件├─ output/                # 处理后的输出结果├─ 测试.json              # 测试文件└─ extension              # 插件相关可执行文件等文件</code></pre><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol><li><strong>找不到文件</strong>  <ul><li>请确保关闭杀毒软件或将文件夹加入安全名单。</li></ul></li></ol><h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><pre><code>MIT License</code></pre><h2 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h2><ul><li>此为小型程序，由python编写完成，非专业，仍在维护和改进，仅供参考和学习。  </li><li>若修改或扩展此程序，可以查看源码进行更改。</li></ul><hr><p>运行测试环境为win11系统</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> github </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Open Source </tag>
             
         </tags>
       
